@@ -10,25 +10,31 @@ public class Mover : MonoBehaviour
     // 定义一个Transform类型的变量target，用于存储目标位置
     [SerializeField] Transform target;
 
-    // 定义一个Ray类型的变量lastRay，用于存储上一次鼠标点击产生的射线
-    Ray lastRay;
-
-    // Update is called once per frame
-    // Update方法在每一帧中被调用
     void Update()
     {
+        // 当鼠标左键被按下时
         if(Input.GetMouseButtonDown(0))
         {
-            // 根据鼠标在屏幕上的位置计算一条射线，并将其存储在lastRay变量中
-            //根据鼠标在屏幕上的位置计算一条从摄像机发出的射线
-            lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            // 调用MoveToCursor方法，使游戏对象移动到鼠标点击的位置
+            MoveToCursor();
         }
+    }
 
-        // 在场景中绘制lastRay变量表示的射线，方向乘以100以增加射线长度
-        Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
-
-        // 获取当前游戏对象的NavMeshAgent组件
-        // 设置NavMeshAgent组件的目标位置为target变量所指向的Transform的位置
-        GetComponent<NavMeshAgent>().destination = target.position;
+    // 定义一个私有方法MoveToCursor，用于计算鼠标点击的位置并移动游戏对象
+    private void MoveToCursor()
+    {
+        // 根据鼠标在屏幕上的位置计算一条射线，并将其存储在ray变量中
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        // 定义一个RaycastHit类型的变量hit，用于存储射线与物体的交点信息
+        RaycastHit hit;
+        // 使用Physics.Raycast方法检测射线是否与场景中的物体发生碰撞，并将结果存储在hasHit变量中
+        bool hasHit = Physics.Raycast(ray, out hit);
+        // 如果射线与物体发生碰撞（hasHit为true）
+        if (hasHit)
+        {
+            // 获取当前游戏对象的NavMeshAgent组件
+            // 设置NavMeshAgent组件的目标位置为射线与物体的交点（hit.point）
+            GetComponent<NavMeshAgent>().destination = hit.point;
+        }
     }
 }
