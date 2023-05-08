@@ -15,7 +15,6 @@ namespace RPG.Movement
 
         void Update()
         {
-
             // 调用UpdateAnimator方法，更新动画参数
             UpdateAnimator();
         }
