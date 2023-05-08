@@ -12,8 +12,8 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        // 当鼠标左键被按下时
-        if(Input.GetMouseButtonDown(0))
+        // 当鼠标左键被按住时
+        if(Input.GetMouseButton(0))
         {
             // 调用MoveToCursor方法，使游戏对象移动到鼠标点击的位置
             MoveToCursor();
