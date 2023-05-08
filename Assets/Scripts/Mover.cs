@@ -18,6 +18,9 @@ public class Mover : MonoBehaviour
             // 调用MoveToCursor方法，使游戏对象移动到鼠标点击的位置
             MoveToCursor();
         }
+
+        // 调用UpdateAnimator方法，更新动画参数
+        UpdateAnimator();
     }
 
     // 定义一个私有方法MoveToCursor，用于计算鼠标点击的位置并移动游戏对象
@@ -36,5 +39,18 @@ public class Mover : MonoBehaviour
             // 设置NavMeshAgent组件的目标位置为射线与物体的交点（hit.point）
             GetComponent<NavMeshAgent>().destination = hit.point;
         }
+    }
+
+    // 定义一个私有方法UpdateAnimator，用于更新动画控制器的参数
+    private void UpdateAnimator()
+    {
+        // 获取NavMeshAgent组件的速度，并将其存储在velocity变量中
+        Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+        // 将速度从世界坐标系转换为本地坐标系，并将其存储在localVelocity变量中
+        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        // 获取localVelocity的z分量，并将其作为速度值
+        float speed = localVelocity.z;
+        // 获取Animator组件，并设置其"forwardSpeed"参数为计算得到的速度值
+        GetComponent<Animator>().SetFloat("forwardSpeed", speed);
     }
 }
