@@ -58,6 +58,9 @@ namespace RPG.Control
                 {
                     // 获取当前对象的Mover组件，调用MoveTo方法，将目标位置设置为射线与物体的交点
                     GetComponent<Mover>().MoveTo(hit.point);
+
+                    // 清除Fighter类的目标
+                    GetComponent<Fighter>().ClearTarget();
                 }
                 // 发生交互，返回true
                 return true;

@@ -13,6 +13,13 @@ namespace RPG.Movement
         // 定义一个Transform类型的变量target，用于存储目标位置
         [SerializeField] Transform target;
 
+        NavMeshAgent navMeshAgent;
+
+        private void Start()
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+        }
+
         void Update()
         {
             // 调用UpdateAnimator方法，更新动画参数
@@ -25,13 +32,19 @@ namespace RPG.Movement
             // 获取当前游戏对象的NavMeshAgent组件
             // 设置NavMeshAgent组件的目标位置为传入的destination参数
             GetComponent<NavMeshAgent>().destination = destination;
+            navMeshAgent.isStopped = false;
+        }
+
+        public void Stop()
+        {
+            navMeshAgent.isStopped = true;
         }
 
         // 定义一个私有方法UpdateAnimator，用于更新动画控制器的参数
         private void UpdateAnimator()
         {
             // 获取NavMeshAgent组件的速度，并将其存储在velocity变量中
-            Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+            Vector3 velocity = navMeshAgent.velocity;
             // 将速度从世界坐标系转换为本地坐标系，并将其存储在localVelocity变量中
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             // 获取localVelocity的z分量，并将其作为速度值
