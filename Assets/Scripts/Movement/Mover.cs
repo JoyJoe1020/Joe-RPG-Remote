@@ -17,10 +17,11 @@ public class Mover : MonoBehaviour
         UpdateAnimator();
     }
 
-    // 定义一个私有方法MoveToCursor，用于计算鼠标点击的位置并移动游戏对象
-
+    // 定义一个公共方法MoveTo，用于设置游戏对象的移动目标位置
     public void MoveTo(Vector3 destination)
     {
+        // 获取当前游戏对象的NavMeshAgent组件
+        // 设置NavMeshAgent组件的目标位置为传入的destination参数
         GetComponent<NavMeshAgent>().destination = destination;
     }
 
