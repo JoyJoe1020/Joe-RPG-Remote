@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44139102, g: 0.49021477, b: 0.5702519, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1871,17 +1871,17 @@ PrefabInstance:
     - target: {fileID: 6008869739767249879, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008869739767249879, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008869739767249879, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.82
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008869739767249879, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
@@ -1923,6 +1923,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2550982147805809417, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1305994392}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f85dc8a0c27fbe246a3ca09b47628724, type: 3}
 --- !u!1 &2550982147805809416 stripped
@@ -1931,41 +1936,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1879005804538274142}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2550982147805809417
-MonoBehaviour:
+--- !u!95 &2550982147805809417
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2550982147805809416}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b4dce4dd57a0f4489306bfac2743ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1305994392}
---- !u!195 &2550982147805809418
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2550982147805809416}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 12
-  m_Acceleration: 20
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &2550982147805809422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6008869739767249879, guid: f85dc8a0c27fbe246a3ca09b47628724,
