@@ -1,13 +1,14 @@
-// 使用Unity引擎
+// 引入Unity引擎命名空间
 using UnityEngine;
 // 引入RPG.Movement命名空间
 using RPG.Movement;
+// 引入RPG.Core命名空间
 using RPG.Core;
 
-// 在RPG.combat命名空间下定义Fighter类，继承自MonoBehaviour，用于处理战斗逻辑
-namespace RPG.combat
+// 在RPG.combat命名空间下定义Fighter类，继承自MonoBehaviour，并实现IAction接口，用于处理战斗逻辑
+namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour
+    public class Fighter : MonoBehaviour, IAction
     {
         // 使用[SerializeField]属性，将武器范围暴露到Unity编辑器中，便于调整
         [SerializeField] float weaponRange = 2f;
@@ -30,7 +31,7 @@ namespace RPG.combat
             else
             {
                 // 如果目标在攻击范围内，停止移动
-                GetComponent<Mover>().Stop();
+                GetComponent<Mover>().Cancel();
             }
         }
 
@@ -44,13 +45,14 @@ namespace RPG.combat
         // 用于对战斗目标发起攻击的公共方法
         public void Attack(CombatTarget combatTarget)
         {
+            // 调用ActionScheduler组件的StartAction方法，开始当前的攻击行为
             GetComponent<ActionScheduler>().StartAction(this);
 
             // 将传入的combatTarget的Transform组件赋值给target变量，设置当前攻击目标
             target = combatTarget.transform;
         }
 
-        // 用于取消当前攻击目标的公共方法
+        // 用于取消当前攻击目标的公共方法，实现IAction接口中的Cancel方法
         public void Cancel()
         {
             // 将target设置为null，表示没有攻击目标

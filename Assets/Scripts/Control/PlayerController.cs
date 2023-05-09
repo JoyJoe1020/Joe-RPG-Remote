@@ -1,7 +1,7 @@
 using UnityEngine;
 using RPG.Movement;
 using System;
-using RPG.combat;
+using RPG.Combat;
 
 // 在RPG.Control命名空间下定义一个名为PlayerController的类，继承自MonoBehaviour，用于处理玩家控制
 namespace RPG.Control

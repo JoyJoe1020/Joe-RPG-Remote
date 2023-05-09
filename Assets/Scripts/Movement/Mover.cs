@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// 引入Unity引擎命名空间
 using UnityEngine;
+// 引入UnityEngine.AI命名空间，用于处理导航网格相关功能
 using UnityEngine.AI;
-using RPG.combat;
+// 引入RPG.Core命名空间，用于处理核心逻辑
 using RPG.Core;
 
 // 定义一个名为RPG.Movement的命名空间，以便组织相关的代码
 namespace RPG.Movement
 {
-    // 定义一个名为Mover的类，继承自MonoBehaviour，用于处理游戏对象的移动
-    public class Mover : MonoBehaviour
+    // 定义一个名为Mover的类，继承自MonoBehaviour，并实现IAction接口，用于处理游戏对象的移动
+    public class Mover : MonoBehaviour, IAction
     {
         // 使用SerializeField属性，使得在Unity编辑器的Inspector面板中可见并可编辑
         // 定义一个Transform类型的变量target，用于存储目标位置（已不再使用，可移除）
@@ -34,9 +34,9 @@ namespace RPG.Movement
         // 定义一个公共方法StartMoveAction，用于开始移动操作
         public void StartMoveAction(Vector3 destination)
         {
+            // 调用ActionScheduler组件的StartAction方法，开始当前的移动行为
             GetComponent<ActionScheduler>().StartAction(this);
-            // 调用Fighter组件的Cancel方法，取消攻击
-            GetComponent<Fighter>().Cancel();
+
             // 调用MoveTo方法，设置目标位置并开始移动
             MoveTo(destination);
         }
@@ -50,8 +50,8 @@ namespace RPG.Movement
             navMeshAgent.isStopped = false;
         }
 
-        // 定义一个公共方法Stop，用于停止角色移动
-        public void Stop()
+        // 定义一个公共方法Cancel，实现IAction接口中的Cancel方法，用于停止角色移动
+        public void Cancel()
         {
             // 设置navMeshAgent为停止状态
             navMeshAgent.isStopped = true;
