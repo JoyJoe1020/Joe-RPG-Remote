@@ -2,6 +2,7 @@
 using UnityEngine;
 // 引入RPG.Movement命名空间
 using RPG.Movement;
+using RPG.Core;
 
 // 在RPG.combat命名空间下定义Fighter类，继承自MonoBehaviour，用于处理战斗逻辑
 namespace RPG.combat
@@ -43,6 +44,8 @@ namespace RPG.combat
         // 用于对战斗目标发起攻击的公共方法
         public void Attack(CombatTarget combatTarget)
         {
+            GetComponent<ActionScheduler>().StartAction(this);
+
             // 将传入的combatTarget的Transform组件赋值给target变量，设置当前攻击目标
             target = combatTarget.transform;
         }

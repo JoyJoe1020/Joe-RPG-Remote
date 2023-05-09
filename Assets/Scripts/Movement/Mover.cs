@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.combat;
+using RPG.Core;
 
 // 定义一个名为RPG.Movement的命名空间，以便组织相关的代码
 namespace RPG.Movement
@@ -33,6 +34,7 @@ namespace RPG.Movement
         // 定义一个公共方法StartMoveAction，用于开始移动操作
         public void StartMoveAction(Vector3 destination)
         {
+            GetComponent<ActionScheduler>().StartAction(this);
             // 调用Fighter组件的Cancel方法，取消攻击
             GetComponent<Fighter>().Cancel();
             // 调用MoveTo方法，设置目标位置并开始移动
