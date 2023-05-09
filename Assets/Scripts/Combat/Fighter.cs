@@ -32,7 +32,14 @@ namespace RPG.Combat
             {
                 // 如果目标在攻击范围内，停止移动
                 GetComponent<Mover>().Cancel();
+                AttackBehaviour();
             }
+        }
+
+        private void AttackBehaviour()
+        {
+            // 设置Animator组件的"attack"触发器，使角色播放攻击动画
+            GetComponent<Animator>().SetTrigger("attack");
         }
 
         // 判断目标是否在武器范围内的方法
@@ -57,6 +64,12 @@ namespace RPG.Combat
         {
             // 将target设置为null，表示没有攻击目标
             target = null;
+        }
+
+        //Animation Event
+        void Hit ()
+        {
+            // 用于处理攻击动画事件，目前为空，可以在这里实现具体的攻击逻辑
         }
     }
 }
