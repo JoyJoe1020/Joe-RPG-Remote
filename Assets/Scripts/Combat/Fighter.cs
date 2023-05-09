@@ -13,12 +13,20 @@ namespace RPG.Combat
         // 使用[SerializeField]属性，将武器范围暴露到Unity编辑器中，便于调整
         [SerializeField] float weaponRange = 2f;
 
+        // 攻击间隔时间
+        [SerializeField] float timeBetweenAttacks = 1f; 
+
         // 定义一个Transform类型的变量，用于存储攻击目标
         Transform target;
+
+        // 记录上次攻击的时间
+        float timeSinceLastAttack = 0;
 
         // 每帧更新时调用此方法
         private void Update()
         {
+            timeSinceLastAttack += Time.deltaTime;
+
             // 如果没有攻击目标（target为null），则跳过后续逻辑
             if (target == null) return;
 
@@ -32,14 +40,23 @@ namespace RPG.Combat
             {
                 // 如果目标在攻击范围内，停止移动
                 GetComponent<Mover>().Cancel();
+                // 进行攻击
                 AttackBehaviour();
             }
         }
 
+        // 进行攻击的方法
         private void AttackBehaviour()
         {
-            // 设置Animator组件的"attack"触发器，使角色播放攻击动画
-            GetComponent<Animator>().SetTrigger("attack");
+            // 如果到达攻击间隔时间
+            if(timeSinceLastAttack > timeBetweenAttacks)
+            {
+                // 设置Animator组件的"attack"触发器，使角色播放攻击动画
+                GetComponent<Animator>().SetTrigger("attack");
+
+                // 重置上次攻击时间
+                timeSinceLastAttack = 0;
+            }
         }
 
         // 判断目标是否在武器范围内的方法
