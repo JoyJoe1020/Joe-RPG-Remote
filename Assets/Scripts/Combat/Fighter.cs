@@ -14,7 +14,10 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = 2f;
 
         // 攻击间隔时间
-        [SerializeField] float timeBetweenAttacks = 1f; 
+        [SerializeField] float timeBetweenAttacks = 1f;
+
+        // 新增字段表示武器的伤害
+        [SerializeField] float weaponDamage = 5f;
 
         // 定义一个Transform类型的变量，用于存储攻击目标
         Transform target;
@@ -51,12 +54,23 @@ namespace RPG.Combat
             // 如果到达攻击间隔时间
             if(timeSinceLastAttack > timeBetweenAttacks)
             {
+                //这将会触发Hit()
+
                 // 设置Animator组件的"attack"触发器，使角色播放攻击动画
                 GetComponent<Animator>().SetTrigger("attack");
-
                 // 重置上次攻击时间
                 timeSinceLastAttack = 0;
+
             }
+        }
+
+        //Animation Event
+        void Hit()
+        {
+            // 获取目标的Health组件
+            Health healthComponent = target.GetComponent<Health>();
+            // 对目标造成武器伤害
+            healthComponent.TakeDamage(weaponDamage);
         }
 
         // 判断目标是否在武器范围内的方法
@@ -81,12 +95,6 @@ namespace RPG.Combat
         {
             // 将target设置为null，表示没有攻击目标
             target = null;
-        }
-
-        //Animation Event
-        void Hit ()
-        {
-            // 用于处理攻击动画事件，目前为空，可以在这里实现具体的攻击逻辑
         }
     }
 }
