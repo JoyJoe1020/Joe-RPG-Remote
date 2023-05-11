@@ -1,11 +1,11 @@
 // 引入Unity引擎命名空间
 using UnityEngine;
-// 引入RPG.Movement命名空间
+// 引入RPG.Movement命名空间，用于访问角色移动相关的功能
 using RPG.Movement;
-// 引入RPG.Core命名空间
+// 引入RPG.Core命名空间，用于访问核心游戏功能
 using RPG.Core;
 
-// 在RPG.combat命名空间下定义Fighter类，继承自MonoBehaviour，并实现IAction接口，用于处理战斗逻辑
+// 在RPG.Combat命名空间下定义Fighter类，继承自MonoBehaviour，并实现IAction接口，用于处理战斗逻辑
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
@@ -18,9 +18,8 @@ namespace RPG.Combat
 
         // 新增字段表示武器的伤害
         [SerializeField] float weaponDamage = 5f;
-
-        // 定义一个Transform类型的变量，用于存储攻击目标
-        Transform target;
+ 
+        Health target;
 
         // 记录上次攻击的时间
         float timeSinceLastAttack = 0;
@@ -28,16 +27,19 @@ namespace RPG.Combat
         // 每帧更新时调用此方法
         private void Update()
         {
+            // 计算时间增量并累加到上次攻击时间
             timeSinceLastAttack += Time.deltaTime;
 
             // 如果没有攻击目标（target为null），则跳过后续逻辑
             if (target == null) return;
+            // 如果目标已死亡，跳过后续逻辑
+            if(target.IsDead()) return;
 
             // 如果目标不在攻击范围内
             if (!GetIsInRange())
             {
-                // 获取Mover组件，调用MoveTo方法，使角色移动到目标位置
-                GetComponent<Mover>().MoveTo(target.position);
+                // 调用Mover组件的MoveTo方法，使角色移动到目标位置
+                GetComponent<Mover>().MoveTo(target.transform.position);
             }
             else
             {
@@ -54,7 +56,7 @@ namespace RPG.Combat
             // 如果到达攻击间隔时间
             if(timeSinceLastAttack > timeBetweenAttacks)
             {
-                //这将会触发Hit()
+                //这将会触发Hit()方法
 
                 // 设置Animator组件的"attack"触发器，使角色播放攻击动画
                 GetComponent<Animator>().SetTrigger("attack");
@@ -67,17 +69,15 @@ namespace RPG.Combat
         //Animation Event
         void Hit()
         {
-            // 获取目标的Health组件
-            Health healthComponent = target.GetComponent<Health>();
-            // 对目标造成武器伤害
-            healthComponent.TakeDamage(weaponDamage);
+            // 调用目标的TakeDamage方法，对目标造成伤害
+            target.TakeDamage(weaponDamage);
         }
 
         // 判断目标是否在武器范围内的方法
         private bool GetIsInRange()
         {
-            // 计算当前对象与目标对象之间的距离，如果小于武器范围则返回true，否则返回false
-            return Vector3.Distance(transform.position, target.position) < weaponRange;
+            // 计算当前对象和目标对象之间的距离，如果距离小于武器范围，则返回true，表示目标在武器范围内
+            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
         }
 
         // 用于对战斗目标发起攻击的公共方法
@@ -86,13 +86,15 @@ namespace RPG.Combat
             // 调用ActionScheduler组件的StartAction方法，开始当前的攻击行为
             GetComponent<ActionScheduler>().StartAction(this);
 
-            // 将传入的combatTarget的Transform组件赋值给target变量，设置当前攻击目标
-            target = combatTarget.transform;
+            // 从传入的CombatTarget对象中获取Health组件，并将其赋值给target变量
+            target = combatTarget.GetComponent<Health>();
         }
 
         // 用于取消当前攻击目标的公共方法，实现IAction接口中的Cancel方法
         public void Cancel()
         {
+            // 设置Animator组件的"stopAttack"触发器，使角色停止攻击动画
+            GetComponent<Animator>().SetTrigger("stopAttack");
             // 将target设置为null，表示没有攻击目标
             target = null;
         }
