@@ -75,6 +75,13 @@ namespace RPG.Combat
             target.TakeDamage(weaponDamage);
         }
 
+        public bool CanAttack(CombatTarget combatTarget)
+        {
+            if(combatTarget == null) { return false; }
+            Health targetToTest = combatTarget.GetComponent<Health>();
+            return targetToTest != null && !targetToTest.IsDead();
+        }
+
         // 判断目标是否在武器范围内的方法
         private bool GetIsInRange()
         {
