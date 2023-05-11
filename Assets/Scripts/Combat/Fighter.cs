@@ -18,7 +18,8 @@ namespace RPG.Combat
 
         // 新增字段表示武器的伤害
         [SerializeField] float weaponDamage = 5f;
- 
+
+        // 声明Health类型的变量，用于存储攻击目标的生命值组件
         Health target;
 
         // 记录上次攻击的时间
@@ -53,6 +54,7 @@ namespace RPG.Combat
         // 进行攻击的方法
         private void AttackBehaviour()
         {
+            // 让角色始终面向目标
             transform.LookAt(target.transform);
 
             // 如果到达攻击间隔时间
@@ -60,26 +62,42 @@ namespace RPG.Combat
             {
                 //这将会触发Hit()方法
 
-                // 设置Animator组件的"attack"触发器，使角色播放攻击动画
-                GetComponent<Animator>().SetTrigger("attack");
+                // 触发攻击动画
+                TriggerAttack();
                 // 重置上次攻击时间
                 timeSinceLastAttack = 0;
 
             }
         }
 
+        // 触发攻击动画的方法
+        private void TriggerAttack()
+        {
+            // 重置Animator组件的"stopAttack"触发器，确保动画状态正确
+            GetComponent<Animator>().ResetTrigger("stopAttack");
+
+            // 设置Animator组件的"attack"触发器，使角色播放攻击动画
+            GetComponent<Animator>().SetTrigger("attack");
+        }
+
         //Animation Event
         void Hit()
         {
+            // 如果目标不存在，直接返回
+            if(target == null) { return; }
             // 调用目标的TakeDamage方法，对目标造成伤害
             target.TakeDamage(weaponDamage);
         }
 
+        // 判断是否可以攻击的方法
         public bool CanAttack(CombatTarget combatTarget)
         {
+            // 如果combatTarget为null，则返回false，表示无法攻击
             if(combatTarget == null) { return false; }
+            // 从combatTarget中获取Health组件
             Health targetToTest = combatTarget.GetComponent<Health>();
-            return targetToTest != null && !targetToTest.IsDead();
+            // 判断目标是否存在且未死亡，如果满足条件则返回true，表示可以攻击
+            return targetToTest != null && targetToTest.IsDead();
         }
 
         // 判断目标是否在武器范围内的方法
@@ -102,10 +120,19 @@ namespace RPG.Combat
         // 用于取消当前攻击目标的公共方法，实现IAction接口中的Cancel方法
         public void Cancel()
         {
-            // 设置Animator组件的"stopAttack"触发器，使角色停止攻击动画
-            GetComponent<Animator>().SetTrigger("stopAttack");
+            // 停止攻击动画
+            StopAttack();
             // 将target设置为null，表示没有攻击目标
             target = null;
+        }
+
+        // 停止攻击动画的方法
+        private void StopAttack()
+        {
+            // 重置Animator组件的"attack"触发器，确保动画状态正确
+            GetComponent<Animator>().ResetTrigger("attack");
+            // 设置Animator组件的"stopAttack"触发器，使角色停止攻击动画
+            GetComponent<Animator>().SetTrigger("stopAttack");
         }
     }
 }
