@@ -53,6 +53,8 @@ namespace RPG.Combat
         // 进行攻击的方法
         private void AttackBehaviour()
         {
+            transform.LookAt(target.transform);
+
             // 如果到达攻击间隔时间
             if(timeSinceLastAttack > timeBetweenAttacks)
             {

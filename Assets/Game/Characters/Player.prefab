@@ -2537,6 +2537,11 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 2194342954630908411}
+    - target: {fileID: 137664533155901786, guid: 45608daf8c357ac4883238b3247d64b7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3fbade09b83e6684c85f132da96a79bd, type: 2}
     - target: {fileID: 137663723937141662, guid: 45608daf8c357ac4883238b3247d64b7,
         type: 3}
       propertyPath: m_Bones.Array.data[0]
