@@ -97,7 +97,7 @@ namespace RPG.Combat
             // 从combatTarget中获取Health组件
             Health targetToTest = combatTarget.GetComponent<Health>();
             // 判断目标是否存在且未死亡，如果满足条件则返回true，表示可以攻击
-            return targetToTest != null && targetToTest.IsDead();
+            return targetToTest != null && !targetToTest.IsDead();
         }
 
         // 判断目标是否在武器范围内的方法
