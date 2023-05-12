@@ -2,12 +2,20 @@ using UnityEngine;
 using RPG.Movement;
 using System;
 using RPG.Combat;
+using RPG.Core;
 
 // 在RPG.Control命名空间下定义一个名为PlayerController的类，继承自MonoBehaviour，用于处理玩家控制
 namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        Health health;
+
+        private void Start() 
+        {
+            health = GetComponent<Health>();
+        }
+        
         // 在每一帧更新时调用
         private void Update()
         {

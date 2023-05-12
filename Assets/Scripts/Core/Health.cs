@@ -41,6 +41,8 @@ namespace RPG.Core
             isDead = true;
             // 触发角色动画组件的“die”触发器，播放死亡动画
             GetComponent<Animator>().SetTrigger("die");
+
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
 }

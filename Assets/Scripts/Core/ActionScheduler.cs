@@ -27,5 +27,10 @@ namespace RPG.Core
             // 将传入的action赋值给currentAction，表示开始执行新的行为
             currentAction = action;
         }
+
+        public void CancelCurrentAction()
+        {
+            StartAction(null);
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace RPG.Combat
         Health target;
 
         // 记录上次攻击的时间
-        float timeSinceLastAttack = 0;
+        float timeSinceLastAttack = Mathf.Infinity;
 
         // 每帧更新时调用此方法
         private void Update()
