@@ -27,7 +27,10 @@ namespace RPG.Control
             {
                 // 尝试获取物体上的CombatTarget组件
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (!GetComponent<Fighter>().CanAttack(target))
+                if(target == null) { continue; }
+
+                GameObject targetGameObject = target.gameObject;
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject))
                 {
                     continue;
                 }
@@ -35,8 +38,7 @@ namespace RPG.Control
                 // 如果鼠标左键被按下
                 if (Input.GetMouseButtonDown(0))
                 {
-                    // 获取当前对象的Fighter组件并对目标发起攻击
-                    GetComponent<Fighter>().Attack(target);
+                    GetComponent<Fighter>().Attack(target.gameObject);
                 }
                 // 发生交互，返回true
                 return true;

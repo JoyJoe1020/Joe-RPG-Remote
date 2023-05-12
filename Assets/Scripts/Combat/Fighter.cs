@@ -89,8 +89,16 @@ namespace RPG.Combat
             target.TakeDamage(weaponDamage);
         }
 
+
+        // 判断目标是否在武器范围内的方法
+        private bool GetIsInRange()
+        {
+            // 计算当前对象和目标对象之间的距离，如果距离小于武器范围，则返回true，表示目标在武器范围内
+            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+        }
+
         // 判断是否可以攻击的方法
-        public bool CanAttack(CombatTarget combatTarget)
+        public bool CanAttack(GameObject combatTarget)
         {
             // 如果combatTarget为null，则返回false，表示无法攻击
             if(combatTarget == null) { return false; }
@@ -100,15 +108,9 @@ namespace RPG.Combat
             return targetToTest != null && !targetToTest.IsDead();
         }
 
-        // 判断目标是否在武器范围内的方法
-        private bool GetIsInRange()
-        {
-            // 计算当前对象和目标对象之间的距离，如果距离小于武器范围，则返回true，表示目标在武器范围内
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
-        }
 
         // 用于对战斗目标发起攻击的公共方法
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             // 调用ActionScheduler组件的StartAction方法，开始当前的攻击行为
             GetComponent<ActionScheduler>().StartAction(this);
