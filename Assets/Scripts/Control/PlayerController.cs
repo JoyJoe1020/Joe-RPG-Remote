@@ -9,10 +9,13 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        // 定义一个Health类型的变量，用于存储游戏对象的生命值组件
         Health health;
 
+        // 在Start方法中初始化Health组件
         private void Start() 
         {
+            // 获取当前游戏对象上的Health组件
             health = GetComponent<Health>();
         }
         
@@ -35,9 +38,14 @@ namespace RPG.Control
             {
                 // 尝试获取物体上的CombatTarget组件
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
+
+                // 如果目标对象上没有CombatTarget组件，则跳过当前迭代并继续检查下一个物体
                 if(target == null) { continue; }
 
+                // 获取目标游戏对象
                 GameObject targetGameObject = target.gameObject;
+
+                // 判断当前游戏对象是否可以攻击目标游戏对象，如果不能攻击，则跳过当前迭代并继续检查下一个物体
                 if (!GetComponent<Fighter>().CanAttack(target.gameObject))
                 {
                     continue;
@@ -46,6 +54,7 @@ namespace RPG.Control
                 // 如果鼠标左键被按下
                 if (Input.GetMouseButtonDown(0))
                 {
+                    // 获取当前游戏对象上的Fighter组件，调用Attack方法对目标游戏对象发起攻击
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
                 // 发生交互，返回true

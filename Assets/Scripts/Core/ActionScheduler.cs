@@ -28,8 +28,10 @@ namespace RPG.Core
             currentAction = action;
         }
 
+        // 定义一个公共方法CancelCurrentAction，用于取消当前正在执行的行为
         public void CancelCurrentAction()
         {
+            // 调用StartAction方法，传入null作为参数，表示没有新的行为需要开始，从而取消当前行为
             StartAction(null);
         }
     }

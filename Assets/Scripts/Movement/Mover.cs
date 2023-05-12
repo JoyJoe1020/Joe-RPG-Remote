@@ -18,18 +18,22 @@ namespace RPG.Movement
         // 定义一个NavMeshAgent类型的变量navMeshAgent，用于操作NavMeshAgent组件
         NavMeshAgent navMeshAgent;
 
+        // 定义一个Health类型的变量，用于存储游戏对象的生命值信息
         Health health;
 
         // 在Start方法中获取NavMeshAgent组件并赋值给navMeshAgent变量
         private void Start()
         {
+            // 获取游戏对象上的NavMeshAgent组件，并将其赋值给navMeshAgent变量
             navMeshAgent = GetComponent<NavMeshAgent>();
+            // 获取游戏对象上的Health组件，并将其赋值给health变量
             health = GetComponent<Health>();
         }
 
         // 在每帧更新时调用Update方法
         void Update()
         {
+            // 在Update方法中，通过判断角色是否死亡来决定是否启用navMeshAgent组件
             navMeshAgent.enabled = !health.IsDead();
 
             // 调用UpdateAnimator方法，更新动画参数
