@@ -13,15 +13,18 @@ namespace RPG.Control
         Health health;
 
         // 在Start方法中初始化Health组件
-        private void Start() 
+        private void Start()
         {
             // 获取当前游戏对象上的Health组件
             health = GetComponent<Health>();
         }
-        
+
         // 在每一帧更新时调用
         private void Update()
         {
+            // 如果角色已死亡，则不执行后续逻辑
+            if (health.IsDead()) { return; }
+
             // 与战斗进行交互，如果有交互，返回
             if (InteractWithCombat()) return;
             // 与移动进行交互，如果有交互，返回
@@ -40,7 +43,7 @@ namespace RPG.Control
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
 
                 // 如果目标对象上没有CombatTarget组件，则跳过当前迭代并继续检查下一个物体
-                if(target == null) { continue; }
+                if (target == null) { continue; }
 
                 // 获取目标游戏对象
                 GameObject targetGameObject = target.gameObject;
@@ -52,7 +55,7 @@ namespace RPG.Control
                 }
 
                 // 如果鼠标左键被按下
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0))
                 {
                     // 获取当前游戏对象上的Fighter组件，调用Attack方法对目标游戏对象发起攻击
                     GetComponent<Fighter>().Attack(target.gameObject);
