@@ -12,6 +12,8 @@
         {
             // 设置AI追击范围距离
             [SerializeField] float chaseDistance = 5f;
+            [SerializeField] float suspicionTIme = 3f;
+
             // 定义Fighter类型变量
             Fighter fighter;
             // 定义Health类型变量
@@ -22,6 +24,7 @@
             GameObject player;
             // 定义初始守卫位置
             Vector3 guardPosition;
+            float timeSinceLastSawPlayer = Mathf.Infinity;
 
             // 在Start方法中进行组件初始化
             private void Start() 
@@ -48,18 +51,34 @@
                 // 如果玩家在攻击范围内且可以攻击
                 if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
                 {
-                    // 发起攻击
-                    fighter.Attack(player);
+                    timeSinceLastSawPlayer = 0;
+                    AttackBehaviour();
+                }
+                else if (timeSinceLastSawPlayer < suspicionTIme)
+                {
+                    SuspicionBehaviour();
                 }
                 else
                 {
                     // 否则返回守卫位置
                     mover.StartMoveAction(guardPosition);
                 }
+
+                timeSinceLastSawPlayer += Time.deltaTime;
             }
 
-            // 判断玩家是否在攻击范围内的方法
-            private bool InAttackRangeOfPlayer()
+        private void SuspicionBehaviour()
+        {
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        private void AttackBehaviour()
+        {
+            fighter.Attack(player);
+        }
+
+        // 判断玩家是否在攻击范围内的方法
+        private bool InAttackRangeOfPlayer()
             {
                 // 计算玩家与AI角色之间的距离
                 float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
