@@ -16,6 +16,7 @@ namespace RPG.Control
             [SerializeField] float suspicionTIme = 3f;
             [SerializeField] PatrolPath patrolPath;
             [SerializeField] float waypointTolerance = 1f;
+            [SerializeField] float waypointDwellTime = 3f;
 
             // 定义Fighter类型变量
             Fighter fighter;
@@ -29,6 +30,7 @@ namespace RPG.Control
             // 定义初始守卫位置
             Vector3 guardPosition;
             float timeSinceLastSawPlayer = Mathf.Infinity;
+            float timeSinceArrivedAtWaypoint = Mathf.Infinity;
             int currentWaypointIndex = 0;
 
             // 在Start方法中进行组件初始化
@@ -49,27 +51,32 @@ namespace RPG.Control
 
             // 在Update方法中处理AI角色的行为逻辑
             private void Update()
+        {
+            // 如果角色已死亡，则不执行后续逻辑
+            if (health.IsDead()) { return; }
+
+            // 如果玩家在攻击范围内且可以攻击
+            if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {
-                // 如果角色已死亡，则不执行后续逻辑
-                if (health.IsDead()) { return; }
-
-                // 如果玩家在攻击范围内且可以攻击
-                if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
-                {
-                    timeSinceLastSawPlayer = 0;
-                    AttackBehaviour();
-                }
-                else if (timeSinceLastSawPlayer < suspicionTIme)
-                {
-                    SuspicionBehaviour();
-                }
-                else
-                {
-                    PatrolBehaviour();
-                }
-
-                timeSinceLastSawPlayer += Time.deltaTime;
+                AttackBehaviour();
             }
+            else if (timeSinceLastSawPlayer < suspicionTIme)
+            {
+                SuspicionBehaviour();
+            }
+            else
+            {
+                PatrolBehaviour();
+            }
+
+            UpdateTimers();
+        }
+
+        private void UpdateTimers()
+        {
+            timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceArrivedAtWaypoint += Time.deltaTime;
+        }
 
         private void PatrolBehaviour()
         {
@@ -79,12 +86,16 @@ namespace RPG.Control
             {
                 if (AtWaypoint())
                 {
+                    timeSinceArrivedAtWaypoint = 0;
                     CycleWaypoint();
                 }
                 nextPosition = GetCurrentWaypoint();
             }
 
-            mover.StartMoveAction(nextPosition);
+            if (timeSinceArrivedAtWaypoint > waypointDwellTime)
+            {
+                mover.StartMoveAction(nextPosition);
+            }
         }
 
         private bool AtWaypoint()
@@ -110,6 +121,7 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
+            timeSinceLastSawPlayer = 0;
             fighter.Attack(player);
         }
 
