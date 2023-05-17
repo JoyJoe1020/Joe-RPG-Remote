@@ -18,6 +18,8 @@ namespace RPG.Control
         [SerializeField] PatrolPath patrolPath;  // AI的巡逻路线
         [SerializeField] float waypointTolerance = 1f;  // AI到达巡逻点的容忍距离，小于这个距离时认为已经到达巡逻点
         [SerializeField] float waypointDwellTime = 3f;  // AI在每个巡逻点停留的时间
+        [Range(0,1)]
+        [SerializeField] float patrolSpeedFraction = 0.2f;
 
         // 定义一些组件和游戏对象的引用
         Fighter fighter;  // Fighter组件的引用，用于处理战斗行为
@@ -94,7 +96,7 @@ namespace RPG.Control
             // 如果AI在当前巡逻点停留的时间超过了设定的值，则开始向下一个位置移动
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
-                mover.StartMoveAction(nextPosition);
+                mover.StartMoveAction(nextPosition, patrolSpeedFraction);
             }
         }
 

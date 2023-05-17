@@ -81,7 +81,7 @@ namespace RPG.Control
                 if (Input.GetMouseButton(0))
                 {
                     // 获取当前对象的Mover组件，调用MoveTo方法，将目标位置设置为射线与物体的交点
-                    GetComponent<Mover>().StartMoveAction(hit.point);
+                    GetComponent<Mover>().StartMoveAction(hit.point, 1f);
                 }
                 // 发生交互，返回true
                 return true;

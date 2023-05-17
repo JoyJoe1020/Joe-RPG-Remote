@@ -14,6 +14,7 @@ namespace RPG.Movement
         // 使用SerializeField属性，使得在Unity编辑器的Inspector面板中可见并可编辑
         // 定义一个Transform类型的变量target，用于存储目标位置（已不再使用，可移除）
         [SerializeField] Transform target;
+        [SerializeField] float maxSpeed = 6f;
 
         // 定义一个NavMeshAgent类型的变量navMeshAgent，用于操作NavMeshAgent组件
         NavMeshAgent navMeshAgent;
@@ -41,20 +42,20 @@ namespace RPG.Movement
         }
 
         // 定义一个公共方法StartMoveAction，用于开始移动操作
-        public void StartMoveAction(Vector3 destination)
+        public void StartMoveAction(Vector3 destination, float speedFraction)
         {
             // 调用ActionScheduler组件的StartAction方法，开始当前的移动行为
             GetComponent<ActionScheduler>().StartAction(this);
 
-            // 调用MoveTo方法，设置目标位置并开始移动
-            MoveTo(destination);
+            MoveTo(destination, speedFraction);
         }
 
         // 定义一个公共方法MoveTo，用于设置游戏对象的移动目标位置
-        public void MoveTo(Vector3 destination)
+        public void MoveTo(Vector3 destination, float speedFraction)
         {
             // 设置NavMeshAgent组件的目标位置为传入的destination参数
             navMeshAgent.destination = destination;
+            navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
             // 设置navMeshAgent为非停止状态，使角色开始移动
             navMeshAgent.isStopped = false;
         }

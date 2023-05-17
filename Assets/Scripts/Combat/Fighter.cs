@@ -40,7 +40,7 @@ namespace RPG.Combat
             if (!GetIsInRange())
             {
                 // 调用Mover组件的MoveTo方法，使角色移动到目标位置
-                GetComponent<Mover>().MoveTo(target.transform.position);
+                GetComponent<Mover>().MoveTo(target.transform.position, 1f);
             }
             else
             {
