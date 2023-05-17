@@ -4,15 +4,18 @@
     using RPG.Combat;
     using RPG.Core;
     using RPG.Movement;
+using System;
 
-    // RPG.Control命名空间下定义一个AIController类，继承自MonoBehaviour，用于处理AI角色的控制逻辑
-    namespace RPG.Control
+// RPG.Control命名空间下定义一个AIController类，继承自MonoBehaviour，用于处理AI角色的控制逻辑
+namespace RPG.Control
     {
         public class AIController : MonoBehaviour
         {
             // 设置AI追击范围距离
             [SerializeField] float chaseDistance = 5f;
             [SerializeField] float suspicionTIme = 3f;
+            [SerializeField] PatrolPath patrolPath;
+            [SerializeField] float waypointTolerance = 1f;
 
             // 定义Fighter类型变量
             Fighter fighter;
@@ -22,9 +25,11 @@
             Mover mover;
             // 定义player对象
             GameObject player;
+
             // 定义初始守卫位置
             Vector3 guardPosition;
             float timeSinceLastSawPlayer = Mathf.Infinity;
+            int currentWaypointIndex = 0;
 
             // 在Start方法中进行组件初始化
             private void Start() 
@@ -60,12 +65,43 @@
                 }
                 else
                 {
-                    // 否则返回守卫位置
-                    mover.StartMoveAction(guardPosition);
+                    PatrolBehaviour();
                 }
 
                 timeSinceLastSawPlayer += Time.deltaTime;
             }
+
+        private void PatrolBehaviour()
+        {
+            Vector3 nextPosition = guardPosition;
+
+            if (patrolPath != null)
+            {
+                if (AtWaypoint())
+                {
+                    CycleWaypoint();
+                }
+                nextPosition = GetCurrentWaypoint();
+            }
+
+            mover.StartMoveAction(nextPosition);
+        }
+
+        private bool AtWaypoint()
+        {
+            float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
+            return distanceToWaypoint < waypointTolerance;
+        }
+
+        private void CycleWaypoint()
+        {
+            currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex);
+        }
+
+        private Vector3 GetCurrentWaypoint()
+        {
+            return patrolPath.GetWaypoint(currentWaypointIndex);
+        }
 
         private void SuspicionBehaviour()
         {
