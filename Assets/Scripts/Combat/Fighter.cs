@@ -126,6 +126,7 @@ namespace RPG.Combat
             StopAttack();
             // 将target设置为null，表示没有攻击目标
             target = null;
+            GetComponent<Mover>().Cancel();
         }
 
         // 停止攻击动画的方法
