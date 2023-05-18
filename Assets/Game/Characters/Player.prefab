@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &77632943089332144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314277876564813724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f300f8afb05221e479b0a905f4bb7ee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1944634381
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26,6 +14,18 @@ CapsuleCollider:
   m_Height: 1.79
   m_Direction: 1
   m_Center: {x: 0, y: 0.93, z: 0}
+--- !u!114 &77632943089332144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314277876564813724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f300f8afb05221e479b0a905f4bb7ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2826680220511956116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98,15 +98,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: weaponDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7818665134583138864, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
       propertyPath: healthPoints
       value: 200
       objectReference: {fileID: 0}
-    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+    - target: {fileID: 2550982147805809418, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
-      propertyPath: weaponDamage
-      value: 10
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f85dc8a0c27fbe246a3ca09b47628724, type: 3}
