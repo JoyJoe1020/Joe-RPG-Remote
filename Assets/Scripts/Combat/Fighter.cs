@@ -11,25 +11,20 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        // 使用[SerializeField]属性，将武器范围暴露到Unity编辑器中，便于调整
-        [SerializeField] float weaponRange = 2f;
-        // 攻击间隔时间
-        [SerializeField] float timeBetweenAttacks = 1f;
-        // 新增字段表示武器的伤害
-        [SerializeField] float weaponDamage = 5f;
-        [SerializeField] GameObject weaponPrefab = null;
-        [SerializeField] Transform handTransform = null;
-        [SerializeField] AnimatorOverrideController weaponOverride = null;
+        // 这些是和武器相关的属性
+        [SerializeField] float weaponRange = 2f;  // 武器的攻击范围
+        [SerializeField] float timeBetweenAttacks = 1f;  // 两次攻击之间的间隔时间
+        [SerializeField] float weaponDamage = 5f;  // 武器的伤害值
+        [SerializeField] Transform handTransform = null;  // 角色手部的Transform组件，用于生成武器
+        [SerializeField] Weapon weapon = null;  // Weapon类型的引用，用于引用武器对象
 
-        // 声明Health类型的变量，用于存储攻击目标的生命值组件
-        Health target;
-
-        // 记录上次攻击的时间
-        float timeSinceLastAttack = Mathf.Infinity;
+        // 这些是和战斗状态相关的变量
+        Health target;  // 声明Health类型的变量，用于存储攻击目标的生命值组件
+        float timeSinceLastAttack = Mathf.Infinity;  // 上次攻击的时间
 
         private void Start() 
         {
-            SpawnWeapon();    
+            SpawnWeapon();    // 游戏开始时生成武器
         }
 
         // 每帧更新时调用此方法
@@ -60,9 +55,9 @@ namespace RPG.Combat
 
         private void SpawnWeapon()
         {
-            Instantiate(weaponPrefab, handTransform);
-            Animator animator = GetComponent<Animator>();
-            animator.runtimeAnimatorController = weaponOverride;
+            if (weapon == null) return;  // 如果没有指定武器，直接返回
+            Animator animator = GetComponent<Animator>();  // 获取角色的Animator组件
+            weapon.Spawn(handTransform, animator);  // 调用武器的Spawn方法生成武器，并替换角色的动画控制器
         }
 
         // 进行攻击的方法
