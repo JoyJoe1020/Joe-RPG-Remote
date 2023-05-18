@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 1833322503}
   - component: {fileID: 1833322502}
   m_Layer: 0
-  m_Name: Sadbox 2 Terrain
+  m_Name: Sandbox 2 Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
