@@ -98,21 +98,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+    - target: {fileID: 2550982147805809418, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
-      propertyPath: weaponDamage
-      value: 10
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7818665134583138864, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
       propertyPath: healthPoints
       value: 200
       objectReference: {fileID: 0}
-    - target: {fileID: 2550982147805809418, guid: f85dc8a0c27fbe246a3ca09b47628724,
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: weaponDamage
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: weaponPrefab
+      value: 
+      objectReference: {fileID: 8099255932663129993, guid: f27c022611eb093409b94b5ff318e12e,
+        type: 3}
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 5409153177494026890}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f85dc8a0c27fbe246a3ca09b47628724, type: 3}
 --- !u!1 &314277876564813724 stripped

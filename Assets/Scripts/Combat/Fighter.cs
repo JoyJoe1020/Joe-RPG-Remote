@@ -4,6 +4,7 @@ using UnityEngine;
 using RPG.Movement;
 // 引入RPG.Core命名空间，用于访问核心游戏功能
 using RPG.Core;
+using System;
 
 // 在RPG.Combat命名空间下定义Fighter类，继承自MonoBehaviour，并实现IAction接口，用于处理战斗逻辑
 namespace RPG.Combat
@@ -12,18 +13,23 @@ namespace RPG.Combat
     {
         // 使用[SerializeField]属性，将武器范围暴露到Unity编辑器中，便于调整
         [SerializeField] float weaponRange = 2f;
-
         // 攻击间隔时间
         [SerializeField] float timeBetweenAttacks = 1f;
-
         // 新增字段表示武器的伤害
         [SerializeField] float weaponDamage = 5f;
+        [SerializeField] GameObject weaponPrefab = null;
+        [SerializeField] Transform handTransform = null;
 
         // 声明Health类型的变量，用于存储攻击目标的生命值组件
         Health target;
 
         // 记录上次攻击的时间
         float timeSinceLastAttack = Mathf.Infinity;
+
+        private void Start() 
+        {
+            SpawnWeapon();    
+        }
 
         // 每帧更新时调用此方法
         private void Update()
@@ -49,6 +55,11 @@ namespace RPG.Combat
                 // 进行攻击
                 AttackBehaviour();
             }
+        }
+
+        private void SpawnWeapon()
+        {
+            Instantiate(weaponPrefab, handTransform);
         }
 
         // 进行攻击的方法
