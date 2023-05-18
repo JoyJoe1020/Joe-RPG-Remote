@@ -39,7 +39,7 @@ namespace RPG.Combat
             // 如果目标不在攻击范围内
             if (!GetIsInRange())
             {
-                // 调用Mover组件的MoveTo方法，使角色移动到目标位置
+                // 调用当前GameObject的Mover组件，使该GameObject以1f的速度向目标位置移动
                 GetComponent<Mover>().MoveTo(target.transform.position, 1f);
             }
             else

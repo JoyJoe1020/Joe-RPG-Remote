@@ -80,7 +80,7 @@ namespace RPG.Control
                 // 如果鼠标左键被按下
                 if (Input.GetMouseButton(0))
                 {
-                    // 获取当前对象的Mover组件，调用MoveTo方法，将目标位置设置为射线与物体的交点
+                    // 调用当前GameObject的Mover组件，使其以1f的速度向鼠标点击的位置移动
                     GetComponent<Mover>().StartMoveAction(hit.point, 1f);
                 }
                 // 发生交互，返回true
@@ -88,7 +88,7 @@ namespace RPG.Control
             }
             // 未发生交互，返回false
             return false;
-        }
+        }   
 
         // 获取鼠标点击产生的射线
         private static Ray GetMouseRay()

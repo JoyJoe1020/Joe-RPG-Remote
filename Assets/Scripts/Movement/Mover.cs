@@ -14,6 +14,8 @@ namespace RPG.Movement
         // 使用SerializeField属性，使得在Unity编辑器的Inspector面板中可见并可编辑
         // 定义一个Transform类型的变量target，用于存储目标位置（已不再使用，可移除）
         [SerializeField] Transform target;
+        // 使用[SerializeField]属性使maxSpeed字段在Unity编辑器中可见并可编辑
+        // maxSpeed定义了游戏对象的最大移动速度
         [SerializeField] float maxSpeed = 6f;
 
         // 定义一个NavMeshAgent类型的变量navMeshAgent，用于操作NavMeshAgent组件
@@ -42,21 +44,29 @@ namespace RPG.Movement
         }
 
         // 定义一个公共方法StartMoveAction，用于开始移动操作
+        // 此方法接收一个目标位置和一个速度比例作为参数
         public void StartMoveAction(Vector3 destination, float speedFraction)
         {
-            // 调用ActionScheduler组件的StartAction方法，开始当前的移动行为
+            // 通过获取并调用ActionScheduler组件的StartAction方法，使当前动作系统开始执行移动动作
+            // StartAction方法会使所有其他动作停止，只执行当前动作（移动动作）
             GetComponent<ActionScheduler>().StartAction(this);
 
+            // 调用MoveTo方法，设置游戏对象的移动目标位置并开始移动
             MoveTo(destination, speedFraction);
         }
 
         // 定义一个公共方法MoveTo，用于设置游戏对象的移动目标位置
+        // 此方法接收一个目标位置和一个速度比例作为参数
         public void MoveTo(Vector3 destination, float speedFraction)
         {
-            // 设置NavMeshAgent组件的目标位置为传入的destination参数
+            // 设置NavMeshAgent组件的目标位置为传入的destination参数，NavMeshAgent会自动计算路径并移动游戏对象
             navMeshAgent.destination = destination;
+
+            // 设置NavMeshAgent的速度为最大速度乘以传入的速度比例
+            // 使用Mathf.Clamp01方法确保传入的速度比例在0到1之间，避免游戏对象移动过快或者停止不动
             navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
-            // 设置navMeshAgent为非停止状态，使角色开始移动
+
+            // 设置navMeshAgent的isStopped属性为false，使NavMeshAgent开始移动游戏对象
             navMeshAgent.isStopped = false;
         }
 

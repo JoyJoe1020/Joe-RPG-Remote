@@ -19,6 +19,8 @@ namespace RPG.Control
         [SerializeField] float waypointTolerance = 1f;  // AI到达巡逻点的容忍距离，小于这个距离时认为已经到达巡逻点
         [SerializeField] float waypointDwellTime = 3f;  // AI在每个巡逻点停留的时间
         [Range(0,1)]
+        // patrolSpeedFraction 是一个可序列化字段，表示AI角色在巡逻过程中的移动速度占其最大移动速度的比例。
+        // 这个值必须在0到1之间，其中0表示AI不移动，1表示AI以最大速度移动。默认值设置为0.2，表示AI在巡逻时的移动速度为其最大速度的20%。
         [SerializeField] float patrolSpeedFraction = 0.2f;
 
         // 定义一些组件和游戏对象的引用
@@ -96,6 +98,8 @@ namespace RPG.Control
             // 如果AI在当前巡逻点停留的时间超过了设定的值，则开始向下一个位置移动
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
+                // 调用Mover组件的StartMoveAction方法，使AI角色开始向下一个巡逻点移动。
+                // 第一个参数是目标位置，第二个参数是移动速度占最大速度的比例（即patrolSpeedFraction）。
                 mover.StartMoveAction(nextPosition, patrolSpeedFraction);
             }
         }
