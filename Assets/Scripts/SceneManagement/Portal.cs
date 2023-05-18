@@ -10,10 +10,16 @@ namespace RPG.SceneManagement
 {
     public class Portal : MonoBehaviour
     {
+        enum DestinationIdentifier
+        {
+            A, B, C, D
+        }
+
         // 用于在Inspector中设置要加载的场景的索引
         [SerializeField] int sceneToLoad = -1;
         // 出生点的Transform组件，用于设置玩家在新场景中的位置和旋转
         [SerializeField] Transform spawnPoint;
+        [SerializeField] DestinationIdentifier destination;
 
         // 当有其他物体进入该游戏对象的触发器时调用
         private void OnTriggerEnter(Collider other)
@@ -28,6 +34,12 @@ namespace RPG.SceneManagement
         // 场景切换的协程
         private IEnumerator Transition()
         {
+            if (sceneToLoad < 0)
+            {   
+                Debug.LogError(("没有设置要加载的场景"));
+                yield break;
+            }
+
             // 在切换场景时保持此游戏对象不被销毁
             DontDestroyOnLoad(gameObject);
             // 异步加载指定的场景，并等待加载完成
@@ -62,6 +74,8 @@ namespace RPG.SceneManagement
             {
                 // 如果是当前的Portal对象，跳过当前迭代
                 if (portal == this) continue;
+
+                if (portal.destination != destination) continue;
 
                 // 返回找到的其他Portal对象
                 return portal;
