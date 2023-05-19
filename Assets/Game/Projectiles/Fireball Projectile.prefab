@@ -50,6 +50,10 @@ MonoBehaviour:
   isHoming: 1
   hitEffect: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db,
     type: 3}
+  maxLifeTime: 10
+  destroyOnHit:
+  - {fileID: 6698187111318728637}
+  lifeAfterImpact: 0.2
 --- !u!65 &3090762397115332173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4888,11 +4892,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -4912,7 +4916,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.3
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 0.87266463
+      objectReference: {fileID: 0}
+    - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19861774, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8356666ac1766c498d6e8a0bc3eb447, type: 3}
