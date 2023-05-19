@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 1f; // 投射物的移动速度
     [SerializeField] bool isHoming = true;
+    [SerializeField] GameObject hitEffect = null;
     Health target = null; // 投射物的目标
     float damage = 0; // 投射物对目标的伤害值
 
@@ -62,6 +63,12 @@ public class Projectile : MonoBehaviour
         if (target.IsDead()) return;
         // 对目标造成伤害
         target.TakeDamage(damage);
+
+        if (hitEffect != null)
+        {
+            Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+        }
+
         // 销毁投射物
         Destroy(gameObject);
     }
