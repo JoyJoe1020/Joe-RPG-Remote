@@ -7,56 +7,61 @@ namespace RPG.Combat
     [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make New Weapon", order = 0)]
     public class Weapon : ScriptableObject
     {
-        // 这些是武器的属性
+        // 武器的各种属性
         [SerializeField] AnimatorOverrideController animatorOverride = null;  // 武器的动画控制器，用于替换角色的动画
-        [SerializeField] GameObject equippedPrefab = null;  // 武器的预制体
-        [SerializeField] float weaponDamage = 5f;
-        [SerializeField] float weaponRange = 2f;
-        [SerializeField] bool isRightHanded = true;
-        [SerializeField] Projectile projectile = null;
+        [SerializeField] GameObject equippedPrefab = null;  // 装备时的武器预制体
+        [SerializeField] float weaponDamage = 5f;  // 武器的伤害值
+        [SerializeField] float weaponRange = 2f;  // 武器的攻击范围
+        [SerializeField] bool isRightHanded = true;  // 是否为右手武器
+        [SerializeField] Projectile projectile = null;  // 武器的投射物
 
+        // 创建武器实例并装备
         public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
             if (equippedPrefab != null)
             {
                 Transform handTransform = GetTransform(rightHand, leftHand);
-                Instantiate(equippedPrefab, handTransform);
+                Instantiate(equippedPrefab, handTransform);  // 在指定手部位置实例化预制体
             }
 
             if (animatorOverride != null)
             {
-                animator.runtimeAnimatorController = animatorOverride;  // 替换角色的动画控制器
+                animator.runtimeAnimatorController = animatorOverride;  // 使用该武器的动画控制器替换角色的动画控制器
             }
         }
 
+        // 判断应该在哪只手上装备武器
         private Transform GetTransform(Transform rightHand, Transform leftHand)
         {
             Transform handTransform;
-            if (isRightHanded) handTransform = rightHand;
-            else handTransform = leftHand;
+            if (isRightHanded) handTransform = rightHand;  // 如果是右手武器，则选择右手
+            else handTransform = leftHand;  // 否则选择左手
             return handTransform;
         }
 
+        // 判断是否有投射物
         public bool HasProjectile()
         {
-            return projectile != null;
+            return projectile != null;  // 如果投射物不为空，则返回true
         }
 
+        // 发射投射物
         public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
         {
-            Projectile projectileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
-            projectileInstance.SetTarget(target, weaponDamage);
-        }     
+            Projectile projectileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);  // 实例化投射物
+            projectileInstance.SetTarget(target, weaponDamage);  // 设置投射物的目标和伤害值
+        }
 
+        // 获取武器的伤害值
         public float GetDamage()
         {
             return weaponDamage;
         }
 
+        // 获取武器的攻击范围
         public float GetRange()
         {
             return weaponRange;
         }
     }
 }
-

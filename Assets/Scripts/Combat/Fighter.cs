@@ -12,14 +12,17 @@ namespace RPG.Combat
     {
         // 这些是和武器相关的属性
         [SerializeField] float timeBetweenAttacks = 1f;  // 两次攻击之间的间隔时间
-        [SerializeField] Transform rightHandTransform = null;
+
+        // 以下两个字段分别表示角色的左手和右手的位置，这两个位置通常是角色握武器的位置
+        [SerializeField] Transform rightHandTransform = null;  
         [SerializeField] Transform leftHandTransform = null;
+
         [SerializeField] Weapon defaultWeapon = null;  // Weapon类型的引用，用于引用武器对象
 
         // 这些是和战斗状态相关的变量
         Health target;  // 声明Health类型的变量，用于存储攻击目标的生命值组件
         float timeSinceLastAttack = Mathf.Infinity;  // 上次攻击的时间
-        Weapon currentWeapon = null;
+        Weapon currentWeapon = null;  // currentWeapon表示角色当前装备的武器
 
         private void Start()
         {
@@ -52,11 +55,17 @@ namespace RPG.Combat
             }
         }
 
+        // EquipWeapon方法用于给角色装备一把新的武器
         public void EquipWeapon(Weapon weapon)
         {
+            // 将新武器赋值给currentWeapon，表示角色已经装备了这把武器
             currentWeapon = weapon;
-            Animator animator = GetComponent<Animator>();  // 获取角色的Animator组件
-            weapon.Spawn(rightHandTransform, leftHandTransform, animator);  // 调用武器的Spawn方法生成武器，并替换角色的动画控制器
+
+            // 获取角色的Animator组件，这个组件用于控制角色的动画
+            Animator animator = GetComponent<Animator>();
+
+            // 调用武器的Spawn方法，在角色的手上生成这把武器，并设置相关的动画控制器
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
         // 进行攻击的方法
@@ -88,20 +97,26 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("attack");
         }
 
+        // Hit方法表示角色攻击命中目标
         void Hit()
         {
+            // 如果目标为空，则直接返回
             if (target == null) { return; }
 
+            // 如果当前装备的武器有投射物（例如箭、弹药等）
             if (currentWeapon.HasProjectile())
             {
+                // 则从角色的手中发射投射物，攻击目标
                 currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
             }
             else
             {
+                // 否则，直接对目标造成伤害
                 target.TakeDamage(currentWeapon.GetDamage());
             }
         }
 
+        // Shoot方法也是表示角色攻击命中目标，其实现只是简单地调用了Hit方法
         void Shoot()
         {
             Hit();
@@ -142,6 +157,7 @@ namespace RPG.Combat
             StopAttack();
             // 将target设置为null，表示没有攻击目标
             target = null;
+            // 停止角色的移动
             GetComponent<Mover>().Cancel();
         }
 
