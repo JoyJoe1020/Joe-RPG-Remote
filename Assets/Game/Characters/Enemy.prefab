@@ -31,6 +31,7 @@ MonoBehaviour:
   patrolPath: {fileID: 0}
   waypointTolerance: 1
   waypointDwellTime: 3
+  patrolSpeedFraction: 0.2
 --- !u!114 &1956086882264109546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,20 +111,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2550982147805809418, guid: f85dc8a0c27fbe246a3ca09b47628724,
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
-      propertyPath: m_Speed
-      value: 3.66
+      propertyPath: weaponDamage
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ac31f58add7d9a4291f82296b0ca877,
+        type: 2}
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 8721233324903170553}
     - target: {fileID: 7818665134583138864, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
       propertyPath: healthPoints
       value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+    - target: {fileID: 2550982147805809418, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
-      propertyPath: weaponDamage
-      value: 10
+      propertyPath: m_Speed
+      value: 3.66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f85dc8a0c27fbe246a3ca09b47628724, type: 3}

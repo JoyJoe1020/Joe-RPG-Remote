@@ -6,25 +6,23 @@ using RPG.Movement;
 using RPG.Core;
 using System;
 
-// 在RPG.Combat命名空间下定义Fighter类，继承自MonoBehaviour，并实现IAction接口，用于处理战斗逻辑
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
         // 这些是和武器相关的属性
-        [SerializeField] float weaponRange = 2f;  // 武器的攻击范围
         [SerializeField] float timeBetweenAttacks = 1f;  // 两次攻击之间的间隔时间
-        [SerializeField] float weaponDamage = 5f;  // 武器的伤害值
         [SerializeField] Transform handTransform = null;  // 角色手部的Transform组件，用于生成武器
-        [SerializeField] Weapon weapon = null;  // Weapon类型的引用，用于引用武器对象
+        [SerializeField] Weapon defaultWeapon = null;  // Weapon类型的引用，用于引用武器对象
 
         // 这些是和战斗状态相关的变量
         Health target;  // 声明Health类型的变量，用于存储攻击目标的生命值组件
         float timeSinceLastAttack = Mathf.Infinity;  // 上次攻击的时间
+        Weapon currentWeapon = null;
 
-        private void Start() 
+        private void Start()
         {
-            SpawnWeapon();    // 游戏开始时生成武器
+            EquipWeapon(defaultWeapon);    // 游戏开始时生成武器
         }
 
         // 每帧更新时调用此方法
@@ -36,7 +34,7 @@ namespace RPG.Combat
             // 如果没有攻击目标（target为null），则跳过后续逻辑
             if (target == null) return;
             // 如果目标已死亡，跳过后续逻辑
-            if(target.IsDead()) return;
+            if (target.IsDead()) return;
 
             // 如果目标不在攻击范围内
             if (!GetIsInRange())
@@ -53,9 +51,9 @@ namespace RPG.Combat
             }
         }
 
-        private void SpawnWeapon()
+        public void EquipWeapon(Weapon weapon)
         {
-            if (weapon == null) return;  // 如果没有指定武器，直接返回
+            currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();  // 获取角色的Animator组件
             weapon.Spawn(handTransform, animator);  // 调用武器的Spawn方法生成武器，并替换角色的动画控制器
         }
@@ -67,7 +65,7 @@ namespace RPG.Combat
             transform.LookAt(target.transform);
 
             // 如果到达攻击间隔时间
-            if(timeSinceLastAttack > timeBetweenAttacks)
+            if (timeSinceLastAttack > timeBetweenAttacks)
             {
                 //这将会触发Hit()方法
 
@@ -93,24 +91,22 @@ namespace RPG.Combat
         void Hit()
         {
             // 如果目标不存在，直接返回
-            if(target == null) { return; }
-            // 调用目标的TakeDamage方法，对目标造成伤害
-            target.TakeDamage(weaponDamage);
+            if (target == null) { return; }
+            target.TakeDamage(currentWeapon.GetDamage());
         }
 
 
         // 判断目标是否在武器范围内的方法
         private bool GetIsInRange()
         {
-            // 计算当前对象和目标对象之间的距离，如果距离小于武器范围，则返回true，表示目标在武器范围内
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
         }
 
         // 判断是否可以攻击的方法
         public bool CanAttack(GameObject combatTarget)
         {
             // 如果combatTarget为null，则返回false，表示无法攻击
-            if(combatTarget == null) { return false; }
+            if (combatTarget == null) { return false; }
             // 从combatTarget中获取Health组件
             Health targetToTest = combatTarget.GetComponent<Health>();
             // 判断目标是否存在且未死亡，如果满足条件则返回true，表示可以攻击

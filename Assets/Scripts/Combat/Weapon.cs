@@ -1,20 +1,41 @@
-ï»¿using UnityEngine;
+using UnityEngine;
 
 namespace RPG.Combat
 {
-    // ä½¿ç”¨CreateAssetMenuç‰¹æ€§ï¼Œå¯ä»¥åœ¨Unityçš„èœå•ä¸­åˆ›å»ºæ–°çš„æ­¦å™¨å¯¹è±¡
+    // Ê¹ÓÃCreateAssetMenuÌØĞÔ£¬¿ÉÒÔÔÚUnityµÄ²Ëµ¥ÖĞ´´½¨ĞÂµÄÎäÆ÷¶ÔÏó
     [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make New Weapon", order = 0)]
     public class Weapon : ScriptableObject
     {
-        // è¿™äº›æ˜¯æ­¦å™¨çš„å±æ€§
-        [SerializeField] AnimatorOverrideController animatorOverride = null;  // æ­¦å™¨çš„åŠ¨ç”»æ§åˆ¶å™¨ï¼Œç”¨äºæ›¿æ¢è§’è‰²çš„åŠ¨ç”»
-        [SerializeField] GameObject weaponPrefab = null;  // æ­¦å™¨çš„é¢„åˆ¶ä½“
+        // ÕâĞ©ÊÇÎäÆ÷µÄÊôĞÔ
+        [SerializeField] AnimatorOverrideController animatorOverride = null;  // ÎäÆ÷µÄ¶¯»­¿ØÖÆÆ÷£¬ÓÃÓÚÌæ»»½ÇÉ«µÄ¶¯»­
+        [SerializeField] GameObject equippedPrefab = null;  // ÎäÆ÷µÄÔ¤ÖÆÌå
+        [SerializeField] float weaponDamage = 5f;
+        [SerializeField] float weaponRange = 2f;
 
-        // è¿™ä¸ªæ–¹æ³•ç”¨äºç”Ÿæˆæ­¦å™¨ï¼Œå¹¶æ›¿æ¢è§’è‰²çš„åŠ¨ç”»æ§åˆ¶å™¨
+        // Õâ¸ö·½·¨ÓÃÓÚÉú³ÉÎäÆ÷£¬²¢Ìæ»»½ÇÉ«µÄ¶¯»­¿ØÖÆÆ÷
         public void Spawn(Transform handTransform, Animator animator)
         {
-            Instantiate(weaponPrefab, handTransform);  // åœ¨æŒ‡å®šçš„ä½ç½®ç”Ÿæˆæ­¦å™¨
-            animator.runtimeAnimatorController = animatorOverride;  // æ›¿æ¢è§’è‰²çš„åŠ¨ç”»æ§åˆ¶å™¨
+            if (equippedPrefab != null)
+            {
+                Instantiate(equippedPrefab, handTransform);  // ÔÚÖ¸¶¨µÄÎ»ÖÃÉú³ÉÎäÆ÷
+            }
+
+            if (animatorOverride != null)
+            {
+                animator.runtimeAnimatorController = animatorOverride;  // Ìæ»»½ÇÉ«µÄ¶¯»­¿ØÖÆÆ÷
+            }
+        }
+            
+
+        public float GetDamage()
+        {
+            return weaponDamage;
+        }
+
+        public float GetRange()
+        {
+            return weaponRange;
         }
     }
 }
+

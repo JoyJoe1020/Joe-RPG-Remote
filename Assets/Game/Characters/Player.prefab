@@ -98,16 +98,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2550982147805809418, guid: f85dc8a0c27fbe246a3ca09b47628724,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818665134583138864, guid: f85dc8a0c27fbe246a3ca09b47628724,
-        type: 3}
-      propertyPath: healthPoints
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
       propertyPath: weaponDamage
@@ -136,6 +126,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9b6a26359d7f2544facc8c6e0c6fe94a,
         type: 2}
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ac31f58add7d9a4291f82296b0ca877,
+        type: 2}
+    - target: {fileID: 7818665134583138864, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: healthPoints
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550982147805809418, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f85dc8a0c27fbe246a3ca09b47628724, type: 3}
 --- !u!1 &314277876564813724 stripped
