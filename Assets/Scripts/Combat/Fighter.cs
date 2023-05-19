@@ -18,6 +18,7 @@ namespace RPG.Combat
         [SerializeField] Transform leftHandTransform = null;
 
         [SerializeField] Weapon defaultWeapon = null;  // Weapon类型的引用，用于引用武器对象
+        [SerializeField] string defaultWeaponName = "UnArmed";
 
         // 这些是和战斗状态相关的变量
         Health target;  // 声明Health类型的变量，用于存储攻击目标的生命值组件
@@ -26,7 +27,8 @@ namespace RPG.Combat
 
         private void Start()
         {
-            EquipWeapon(defaultWeapon);    // 游戏开始时生成武器
+            Weapon weapon = Resources.Load<Weapon>(defaultWeaponName);
+            EquipWeapon(weapon);    // 游戏开始时生成武器
         }
 
         // 每帧更新时调用此方法
