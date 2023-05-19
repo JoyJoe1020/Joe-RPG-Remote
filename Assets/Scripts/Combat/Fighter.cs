@@ -88,14 +88,24 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("attack");
         }
 
-        //Animation Event
         void Hit()
         {
-            // 如果目标不存在，直接返回
             if (target == null) { return; }
-            target.TakeDamage(currentWeapon.GetDamage());
+
+            if (currentWeapon.HasProjectile())
+            {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            }
+            else
+            {
+                target.TakeDamage(currentWeapon.GetDamage());
+            }
         }
 
+        void Shoot()
+        {
+            Hit();
+        }
 
         // 判断目标是否在武器范围内的方法
         private bool GetIsInRange()
