@@ -15,19 +15,37 @@ namespace RPG.Combat
         [SerializeField] bool isRightHanded = true;  // 是否为右手武器
         [SerializeField] Projectile projectile = null;  // 武器的投射物
 
+        const string weaponName = "Weapon";
+
         // 创建武器实例并装备
         public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
+            DestroyOldWeapon(rightHand, leftHand);
+
             if (equippedPrefab != null)
             {
                 Transform handTransform = GetTransform(rightHand, leftHand);
-                Instantiate(equippedPrefab, handTransform);  // 在指定手部位置实例化预制体
+                GameObject weapon = Instantiate(equippedPrefab, handTransform);
+                weapon.name = weaponName;
             }
 
             if (animatorOverride != null)
             {
                 animator.runtimeAnimatorController = animatorOverride;  // 使用该武器的动画控制器替换角色的动画控制器
             }
+        }
+
+        private void DestroyOldWeapon(Transform rightHand, Transform leftHand)
+        {
+            Transform oldWeapon = rightHand.Find(weaponName);
+            if (oldWeapon == null)
+            {
+                oldWeapon = leftHand.Find(weaponName);
+            }
+            if (oldWeapon == null) return;
+            
+            oldWeapon.name = "Destroying";
+            Destroy(oldWeapon.gameObject);
         }
 
         // 判断应该在哪只手上装备武器
