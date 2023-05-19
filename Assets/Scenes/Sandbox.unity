@@ -2180,6 +2180,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d462d71719dee644c8025cf81d8a19cd,
         type: 2}
+    - target: {fileID: 1100009488805428615, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: defaultWeaponName
+      value: Bow Blue Projectile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5622c5e7c777696438dfa3b13afde7e5, type: 3}
 --- !u!4 &1418116745 stripped
@@ -2458,6 +2463,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114799227630335512, guid: abeb29716b9728643876f51b48d8b4dc,
+        type: 3}
+      propertyPath: defaultWeaponName
+      value: Bow Red Projectile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abeb29716b9728643876f51b48d8b4dc, type: 3}
@@ -3238,6 +3248,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1ac31f58add7d9a4291f82296b0ca877,
         type: 2}
+    - target: {fileID: 1835578084404475332, guid: 0786f42cbef2e434c93b55766d033ebd,
+        type: 3}
+      propertyPath: defaultWeaponName
+      value: Sword
+      objectReference: {fileID: 0}
     - target: {fileID: 822313205721334985, guid: 0786f42cbef2e434c93b55766d033ebd,
         type: 3}
       propertyPath: healthPoints
