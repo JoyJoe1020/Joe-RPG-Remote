@@ -132,6 +132,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1ac31f58add7d9a4291f82296b0ca877,
         type: 2}
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 5409153177494026890}
+    - target: {fileID: 9120144980047231805, guid: f85dc8a0c27fbe246a3ca09b47628724,
+        type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 5408492351809763990}
     - target: {fileID: 7818665134583138864, guid: f85dc8a0c27fbe246a3ca09b47628724,
         type: 3}
       propertyPath: healthPoints

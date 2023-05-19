@@ -11,13 +11,16 @@ namespace RPG.Combat
         [SerializeField] GameObject equippedPrefab = null;  // 武器的预制体
         [SerializeField] float weaponDamage = 5f;
         [SerializeField] float weaponRange = 2f;
+        [SerializeField] bool isRightHanded = true;
 
-        // 这个方法用于生成武器，并替换角色的动画控制器
-        public void Spawn(Transform handTransform, Animator animator)
+        public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
             if (equippedPrefab != null)
             {
-                Instantiate(equippedPrefab, handTransform);  // 在指定的位置生成武器
+                Transform handTransform;
+                if (isRightHanded) handTransform = rightHand;
+                else handTransform = leftHand;
+                Instantiate(equippedPrefab, handTransform);
             }
 
             if (animatorOverride != null)

@@ -12,7 +12,8 @@ namespace RPG.Combat
     {
         // 这些是和武器相关的属性
         [SerializeField] float timeBetweenAttacks = 1f;  // 两次攻击之间的间隔时间
-        [SerializeField] Transform handTransform = null;  // 角色手部的Transform组件，用于生成武器
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;  // Weapon类型的引用，用于引用武器对象
 
         // 这些是和战斗状态相关的变量
@@ -55,7 +56,7 @@ namespace RPG.Combat
         {
             currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();  // 获取角色的Animator组件
-            weapon.Spawn(handTransform, animator);  // 调用武器的Spawn方法生成武器，并替换角色的动画控制器
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);  // 调用武器的Spawn方法生成武器，并替换角色的动画控制器
         }
 
         // 进行攻击的方法
