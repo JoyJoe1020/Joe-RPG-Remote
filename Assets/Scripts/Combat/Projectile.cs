@@ -6,8 +6,14 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 1f; // 投射物的移动速度
+    [SerializeField] bool isHoming = true;
     Health target = null; // 投射物的目标
     float damage = 0; // 投射物对目标的伤害值
+
+    private void Start() 
+    {
+        transform.LookAt(GetAimLocation());
+    }
 
     // Update方法在每一帧中都会被调用
     void Update()
@@ -15,8 +21,11 @@ public class Projectile : MonoBehaviour
         // 如果没有目标，则返回
         if (target == null) return;
 
-        // 将投射物朝向目标位置
-        transform.LookAt(GetAimLocation());
+        if (isHoming && !target.IsDead())
+        {
+            // 将投射物朝向目标位置
+            transform.LookAt(GetAimLocation());
+        }
         // 投射物向前移动
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
@@ -50,6 +59,7 @@ public class Projectile : MonoBehaviour
     {
         // 如果进入的Collider的Health组件不是投射物的目标，则返回
         if (other.GetComponent<Health>() != target) return;
+        if (target.IsDead()) return;
         // 对目标造成伤害
         target.TakeDamage(damage);
         // 销毁投射物
