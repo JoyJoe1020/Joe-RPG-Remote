@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Saving;
 
 namespace RPG.Core
 {
     // Health类：处理角色生命值相关逻辑
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ISaveable
     {
         // 角色生命值，可在Unity编辑器中调整
         [SerializeField] float healthPoints = 100f;
@@ -44,5 +45,22 @@ namespace RPG.Core
 
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
+
+        public object CaptureState()
+        {
+            return healthPoints;
+        }
+
+
+        public void RestoreState(object state)
+        {
+            healthPoints = (float)state;
+
+            if (healthPoints == 0)
+            {
+                Die();
+            }
+        }
+
     }
 }
