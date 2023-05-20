@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1294456209396114729
+--- !u!1 &2475485764326762274
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1294456209396114731}
-  - component: {fileID: 1294456209396114728}
-  - component: {fileID: 1762166681305973239}
-  - component: {fileID: 3864626324971532}
+  - component: {fileID: 2475485764326762277}
+  - component: {fileID: 2475485764326762276}
+  - component: {fileID: 2475485764326762275}
+  - component: {fileID: 8619352097857881788}
   m_Layer: 2
   m_Name: Portal
   m_TagString: Untagged
@@ -19,28 +19,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1294456209396114731
+--- !u!4 &2475485764326762277
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294456209396114729}
+  m_GameObject: {fileID: 2475485764326762274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0, z: -1.4}
+  m_LocalPosition: {x: -2.7059898, y: -20.272621, z: 22.143436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 9115115656222681352}
+  - {fileID: 3296491619165317019}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1294456209396114728
+--- !u!54 &2475485764326762276
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294456209396114729}
+  m_GameObject: {fileID: 2475485764326762274}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -50,38 +50,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1762166681305973239
+--- !u!65 &2475485764326762275
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294456209396114729}
+  m_GameObject: {fileID: 2475485764326762274}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3864626324971532
+--- !u!114 &8619352097857881788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294456209396114729}
+  m_GameObject: {fileID: 2475485764326762274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97be7f4c6cdc5da4c8ae9b4bf3e73975, type: 3}
+  m_Script: {fileID: 11500000, guid: 541cacfe592acf6478e6e0d240c5e888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: -1
-  spawnPoint: {fileID: 9115115656222681352}
+  spawnPoint: {fileID: 3296491619165317019}
   destination: 0
   fadeOutTime: 0.5
   fadeInTime: 1
   fadeWaitTime: 0.5
---- !u!1 &3165992101905011335
+--- !u!1 &3196273875483888318
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9115115656222681352}
+  - component: {fileID: 3296491619165317019}
   m_Layer: 2
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -97,17 +97,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9115115656222681352
+--- !u!4 &3296491619165317019
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3165992101905011335}
+  m_GameObject: {fileID: 3196273875483888318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 4.12}
+  m_LocalPosition: {x: 0, y: 0, z: 1.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1294456209396114731}
+  m_Father: {fileID: 2475485764326762277}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
