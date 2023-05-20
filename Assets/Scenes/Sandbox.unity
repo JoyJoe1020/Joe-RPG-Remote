@@ -1357,16 +1357,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1876280921487872720, guid: 5622c5e7c777696438dfa3b13afde7e5,
-        type: 3}
-      propertyPath: patrolPath
-      value: 
-      objectReference: {fileID: 1701678965}
     - target: {fileID: 2113382051838676106, guid: 5622c5e7c777696438dfa3b13afde7e5,
         type: 3}
       propertyPath: healthPoints
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 1876280921487872720, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: patrolPath
+      value: 
+      objectReference: {fileID: 1701678965}
     - target: {fileID: 1100009488805428615, guid: 5622c5e7c777696438dfa3b13afde7e5,
         type: 3}
       propertyPath: weaponDamage
@@ -2159,15 +2159,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1876280921487872720, guid: 5622c5e7c777696438dfa3b13afde7e5,
-        type: 3}
-      propertyPath: chaseDistance
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2113382051838676106, guid: 5622c5e7c777696438dfa3b13afde7e5,
         type: 3}
       propertyPath: healthPoints
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876280921487872720, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: chaseDistance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1100009488805428615, guid: 5622c5e7c777696438dfa3b13afde7e5,
         type: 3}
@@ -2882,6 +2882,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2113382051838676106, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: healthPoints
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1876280921487872720, guid: 5622c5e7c777696438dfa3b13afde7e5,
         type: 3}
       propertyPath: patrolPath
@@ -2896,11 +2901,6 @@ PrefabInstance:
         type: 3}
       propertyPath: waypointDwellTime
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2113382051838676106, guid: 5622c5e7c777696438dfa3b13afde7e5,
-        type: 3}
-      propertyPath: healthPoints
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1100009488805428615, guid: 5622c5e7c777696438dfa3b13afde7e5,
         type: 3}
