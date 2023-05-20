@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 // 引入RPG.Core命名空间，用于处理核心逻辑
 using RPG.Core;
+using RPG.Saving;
 
 // 定义一个名为RPG.Movement的命名空间，以便组织相关的代码
 namespace RPG.Movement
 {
-    // 定义一个名为Mover的类，继承自MonoBehaviour，并实现IAction接口，用于处理游戏对象的移动
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         // 使用SerializeField属性，使得在Unity编辑器的Inspector面板中可见并可编辑
         // 定义一个Transform类型的变量target，用于存储目标位置（已不再使用，可移除）
@@ -88,6 +88,19 @@ namespace RPG.Movement
             float speed = localVelocity.z;
             // 获取Animator组件，并设置其"forwardSpeed"参数为计算得到的速度值
             GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+        }
+
+        public object CaptureState()
+        {
+            return new SerializableVector3(transform.position);
+        }
+
+        public void RestoreState(object state)
+        {
+            SerializableVector3 position = (SerializableVector3)state;
+            GetComponent<NavMeshAgent>().enabled = false;
+            transform.position = position.ToVector();
+            GetComponent<NavMeshAgent>().enabled = true;
         }
     }
 }

@@ -589,6 +589,11 @@ PrefabInstance:
       propertyPath: chaseDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3873154153728235029, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 881ab99b-fe7a-4220-88f2-9681d4fb23c6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5622c5e7c777696438dfa3b13afde7e5, type: 3}
 --- !u!4 &331055987 stripped
@@ -833,6 +838,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5669cbb7e0eee7b469fe44c5a872d2ab, type: 2}
+    - target: {fileID: 3873154153728235029, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: c7746233-d8bf-4f98-98c8-310d30f274bc
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5622c5e7c777696438dfa3b13afde7e5, type: 3}
 --- !u!4 &412266748 stripped
@@ -1372,6 +1382,11 @@ PrefabInstance:
       propertyPath: weaponDamage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3873154153728235029, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: ad27ca0b-6609-4169-bd31-ee4f5794ed65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5622c5e7c777696438dfa3b13afde7e5, type: 3}
 --- !u!4 &649631313 stripped
@@ -1637,6 +1652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponDamage
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873154153728235029, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 58bf8ce2-d081-446d-85cd-c1e5870812f0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5622c5e7c777696438dfa3b13afde7e5, type: 3}
@@ -2090,6 +2110,11 @@ PrefabInstance:
       propertyPath: patrolPath
       value: 
       objectReference: {fileID: 9029835828231823073}
+    - target: {fileID: 3873154153728235029, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 364ec046-8f3c-4d10-840b-d8ed82133174
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5622c5e7c777696438dfa3b13afde7e5, type: 3}
 --- !u!1001 &1418116744
@@ -2184,6 +2209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultWeaponName
       value: Bow Blue Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873154153728235029, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: c5c88136-efd2-43a7-a8e5-556a69225864
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5622c5e7c777696438dfa3b13afde7e5, type: 3}
@@ -2468,6 +2498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultWeaponName
       value: Bow Red Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872583333662924170, guid: abeb29716b9728643876f51b48d8b4dc,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 7e4c1b2d-79f2-48a1-9359-f411c97f0d0b
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abeb29716b9728643876f51b48d8b4dc, type: 3}
@@ -2907,6 +2942,11 @@ PrefabInstance:
       propertyPath: weaponDamage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3873154153728235029, guid: 5622c5e7c777696438dfa3b13afde7e5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 043d0c80-16d1-44e8-91eb-baf9282e6bc7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5622c5e7c777696438dfa3b13afde7e5, type: 3}
 --- !u!1001 &2074488316
@@ -3257,6 +3297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: healthPoints
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593362452429741654, guid: 0786f42cbef2e434c93b55766d033ebd,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 91e2ca29-245f-4715-bde0-3ee338bc00ff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0786f42cbef2e434c93b55766d033ebd, type: 3}
