@@ -1,10 +1,8 @@
-﻿// 引入所需的命名空间
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 // 在RPG.SceneManagement命名空间下定义一个名为Portal的类，继承自MonoBehaviour
 namespace RPG.SceneManagement

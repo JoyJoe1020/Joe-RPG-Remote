@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Core
@@ -16,6 +14,7 @@ namespace RPG.Core
             if (hasSpawned) return; // 如果已经生成过持久化对象，就不再生成
 
             SpawnPersistentObjects(); // 生成持久化对象
+            
             hasSpawned = true; // 设置标志为已生成
         }
 

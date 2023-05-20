@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Playables; // 引入PlayableDirector类，管理时间线（timeline）的播放
+﻿using UnityEngine;
+using UnityEngine.Playables;
 using RPG.Core;
 using RPG.Control;
 
