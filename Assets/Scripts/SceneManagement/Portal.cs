@@ -59,8 +59,9 @@ namespace RPG.SceneManagement
             Portal otherPortal = GetOtherPortal(); // 获取目标场景的Portal对象
             UpdatePlayer(otherPortal); // 更新玩家的位置和旋转
 
-            yield return new WaitForSeconds(fadeWaitTime); // 等待一段时间
+            wrapper.Save();
 
+            yield return new WaitForSeconds(fadeWaitTime); // 等待一段时间
             yield return fader.FadeIn(fadeInTime); // 调用FadeIn方法进行场景淡入
 
             Destroy(gameObject); // 销毁此游戏对象

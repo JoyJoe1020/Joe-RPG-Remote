@@ -13,15 +13,11 @@ namespace RPG.SceneManagement
             canvasGroup = GetComponent<CanvasGroup>();  // 在Start方法中获取CanvasGroup组件
         }
 
-        // 淡出再淡入的协程
-        IEnumerator FadeOutIn()
+        public void FadeOutImmediate()
         {
-            yield return FadeOut(3f);
-            print("Faded out");
-            yield return FadeIn(3f);
-            print("Faded in");
+            canvasGroup.alpha = 1;
         }
-
+        
         // 淡出协程
         public IEnumerator FadeOut(float time)
         {
