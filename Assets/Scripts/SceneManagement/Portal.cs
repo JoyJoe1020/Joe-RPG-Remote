@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 // 在RPG.SceneManagement命名空间下定义一个名为Portal的类，继承自MonoBehaviour
 namespace RPG.SceneManagement
@@ -48,7 +49,12 @@ namespace RPG.SceneManagement
 
             yield return fader.FadeOut(fadeOutTime); // 调用FadeOut方法进行场景淡出
 
+            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+            wrapper.Save();
+
             yield return SceneManager.LoadSceneAsync(sceneToLoad); // 异步加载指定的场景，并等待加载完成
+
+            wrapper.Load();
 
             Portal otherPortal = GetOtherPortal(); // 获取目标场景的Portal对象
             UpdatePlayer(otherPortal); // 更新玩家的位置和旋转
@@ -64,8 +70,10 @@ namespace RPG.SceneManagement
         private void UpdatePlayer(Portal otherPortal)
         {
             GameObject player = GameObject.FindWithTag("Player"); // 查找标签为"Player"的游戏对象
+            player.GetComponent<NavMeshAgent>().enabled = false;
             player.transform.position = otherPortal.spawnPoint.position; // 设置玩家的位置为目标出生点的位置
             player.transform.rotation = otherPortal.spawnPoint.rotation; // 设置玩家的旋转为目标出生点的旋转
+            player.GetComponent<NavMeshAgent>().enabled = true;
         }
 
         // 获取目标场景的Portal对象
