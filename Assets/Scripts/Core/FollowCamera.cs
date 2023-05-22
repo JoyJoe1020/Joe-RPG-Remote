@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG.Core
+namespace InventoryExample.Core
 {
     public class FollowCamera : MonoBehaviour
     {
-        [SerializeField] Transform target;
+        [SerializeField] Transform target = null;
 
         void LateUpdate()
         {

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1984951634788294108}
   - component: {fileID: 1984951634788294111}
-  - component: {fileID: 1984951634788294110}
   - component: {fileID: 1984951634788294109}
   m_Layer: 0
   m_Name: Camera
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984951634788294083}
   m_LocalRotation: {x: 0.18170193, y: -0.7368201, z: 0.19377182, w: 0.6217178}
-  m_LocalPosition: {x: 86.522385, y: 34.96534, z: 39.634876}
+  m_LocalPosition: {x: 74.61776, y: 10.486066, z: 37.958927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,9 +44,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -75,14 +75,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1984951634788294110
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984951634788294083}
-  m_Enabled: 1
 --- !u!114 &1984951634788294109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,10 +105,6 @@ MonoBehaviour:
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Cinemachine, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null

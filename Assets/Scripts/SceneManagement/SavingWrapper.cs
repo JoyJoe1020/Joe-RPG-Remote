@@ -1,42 +1,53 @@
 using System.Collections;
-using RPG.Saving;
+using GameDevTV.Saving;
 using UnityEngine;
 
-namespace RPG.SceneManagement
+namespace InventoryExample.SceneManagement
 {
     public class SavingWrapper : MonoBehaviour
     {
+        [SerializeField] KeyCode saveKey = KeyCode.S;
+        [SerializeField] KeyCode loadKey = KeyCode.L;
+        [SerializeField] KeyCode deleteKey = KeyCode.Delete;
         const string defaultSaveFile = "save";
+        
+        private void Awake() 
+        {
+            StartCoroutine(LoadLastScene());
+        }
 
-        [SerializeField] float fadeInTime = 0.2f;
-
-        private IEnumerator Start() {
-            Fader fader = FindObjectOfType<Fader>();
-
-            fader.FadeOutImmediate();
+        private IEnumerator LoadLastScene() {
             yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
-            yield return fader.FadeIn(fadeInTime);
         }
 
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(saveKey))
             {
                 Save();
             }
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(loadKey))
             {
                 Load();
+            }
+            if (Input.GetKeyDown(deleteKey))
+            {
+                Delete();
             }
         }
 
         public void Load()
         {
-            GetComponent<SavingSystem>().Load(defaultSaveFile);
+            StartCoroutine(GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile));
         }
 
         public void Save()
         {
             GetComponent<SavingSystem>().Save(defaultSaveFile);
+        }
+
+        public void Delete()
+        {
+            GetComponent<SavingSystem>().Delete(defaultSaveFile);
         }
     }
 }
