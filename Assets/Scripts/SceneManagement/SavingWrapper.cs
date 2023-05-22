@@ -2,14 +2,13 @@ using System.Collections;
 using GameDevTV.Saving;
 using UnityEngine;
 
-namespace InventoryExample.SceneManagement
+namespace RPG.SceneManagement
 {
     public class SavingWrapper : MonoBehaviour
     {
-        [SerializeField] KeyCode saveKey = KeyCode.S;
-        [SerializeField] KeyCode loadKey = KeyCode.L;
-        [SerializeField] KeyCode deleteKey = KeyCode.Delete;
         const string defaultSaveFile = "save";
+
+        [SerializeField] float fadeInTime = 0.2f;
         
         private void Awake() 
         {
@@ -18,18 +17,21 @@ namespace InventoryExample.SceneManagement
 
         private IEnumerator LoadLastScene() {
             yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+            Fader fader = FindObjectOfType<Fader>();
+            fader.FadeOutImmediate();
+            yield return fader.FadeIn(fadeInTime);
         }
 
         private void Update() {
-            if (Input.GetKeyDown(saveKey))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 Save();
             }
-            if (Input.GetKeyDown(loadKey))
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 Load();
             }
-            if (Input.GetKeyDown(deleteKey))
+            if (Input.GetKeyDown(KeyCode.Delete))
             {
                 Delete();
             }
@@ -37,7 +39,7 @@ namespace InventoryExample.SceneManagement
 
         public void Load()
         {
-            StartCoroutine(GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile));
+            GetComponent<SavingSystem>().Load(defaultSaveFile);
         }
 
         public void Save()

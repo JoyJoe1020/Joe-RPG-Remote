@@ -1,15 +1,19 @@
-using InventoryExample.Movement;
+using RPG.Combat;
+using RPG.Movement;
 using UnityEngine;
+using RPG.Attributes;
 using System;
 using UnityEngine.EventSystems;
 using UnityEngine.AI;
 
-namespace InventoryExample.Control
+namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        Health health;
+
         [System.Serializable]
-        public struct CursorMapping
+        struct CursorMapping
         {
             public CursorType type;
             public Texture2D texture;
@@ -20,16 +24,21 @@ namespace InventoryExample.Control
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
         [SerializeField] float raycastRadius = 1f;
 
-        bool movementStarted = false;
+        bool isDraggingUI = false;
+
+        private void Awake() {
+            health = GetComponent<Health>();
+        }
 
         private void Update()
         {
-            if (Input.GetMouseButtonUp(0))
+            if (InteractWithUI()) return;
+            if (health.IsDead()) 
             {
-                movementStarted = false;
+                SetCursor(CursorType.None);
+                return;
             }
 
-            if (InteractWithUI()) return;
             if (InteractWithComponent()) return;
             if (InteractWithMovement()) return;
 
@@ -38,9 +47,21 @@ namespace InventoryExample.Control
 
         private bool InteractWithUI()
         {
+            if (Input.GetMouseButtonUp(0))
+            {
+                isDraggingUI = false;
+            }
             if (EventSystem.current.IsPointerOverGameObject())
             {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    isDraggingUI = true;
+                }
                 SetCursor(CursorType.UI);
+                return true;
+            }
+            if (isDraggingUI)
+            {
                 return true;
             }
             return false;
@@ -84,11 +105,7 @@ namespace InventoryExample.Control
             {
                 if (!GetComponent<Mover>().CanMoveTo(target)) return false;
 
-                if (Input.GetMouseButtonDown(0))
-                {
-                    movementStarted = true;
-                }
-                if (Input.GetMouseButton(0) && movementStarted)
+                if (Input.GetMouseButton(0))
                 {
                     GetComponent<Mover>().StartMoveAction(target, 1f);
                 }

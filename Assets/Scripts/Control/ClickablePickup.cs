@@ -1,8 +1,9 @@
-using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
 using GameDevTV.Inventories;
-using InventoryExample.Control;
+using UnityEngine;
 
-namespace InventoryExample.Control
+namespace RPG.Control
 {
     [RequireComponent(typeof(Pickup))]
     public class ClickablePickup : MonoBehaviour, IRaycastable

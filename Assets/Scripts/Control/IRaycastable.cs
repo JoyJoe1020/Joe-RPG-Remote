@@ -1,4 +1,4 @@
-﻿namespace InventoryExample.Control
+﻿namespace RPG.Control
 {
     public interface IRaycastable
     {
