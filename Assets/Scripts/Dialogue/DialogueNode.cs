@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -15,6 +16,10 @@ namespace RPG.Dialogue
         List<string> children = new List<string>();
         [SerializeField]
         Rect rect = new Rect(0, 0, 200, 100);
+        [SerializeField]
+        string onEnterAction;
+        [SerializeField]
+        string onExitAction;
 
         public Rect GetRect()
         {
@@ -36,6 +41,16 @@ namespace RPG.Dialogue
             return isPlayerSpeaking;
         }
 
+        public string GetOnEnterAction()
+        {
+            return onEnterAction;
+        }
+
+        public string GetOnExitAction()
+        {
+            return onExitAction;
+        }
+
 #if UNITY_EDITOR
         public void SetPosition(Vector2 newPosition)
         {
@@ -54,13 +69,6 @@ namespace RPG.Dialogue
             }
         }
 
-        public void SetPlayerIsSpeaking(bool newIsPlayerSpeaking)
-        {
-            Undo.RecordObject(this, "Changed Dialogue Node Speaker");
-            isPlayerSpeaking = newIsPlayerSpeaking;
-            EditorUtility.SetDirty(this);
-        }
-
         public void AddChild(string childID)
         {
             Undo.RecordObject(this, "Add Dialogue Link");
@@ -74,6 +82,14 @@ namespace RPG.Dialogue
             children.Remove(childID);
             EditorUtility.SetDirty(this);
         }
+
+        public void SetPlayerSpeaking(bool newIsPlayerSpeaking)
+        {
+            Undo.RecordObject(this, "Change Dialogue Speaker");
+            isPlayerSpeaking = newIsPlayerSpeaking;
+            EditorUtility.SetDirty(this);
+        }
+
 #endif
     }
 }
