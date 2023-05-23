@@ -11,13 +11,12 @@ using GameDevTV.Inventories;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeapon = null;
-        [SerializeField] float autoAttackRange = 4f;
 
         Health target;
         Equipment equipment;
@@ -50,11 +49,7 @@ namespace RPG.Combat
             timeSinceLastAttack += Time.deltaTime;
 
             if (target == null) return;
-            if (target.IsDead()) 
-            {
-                target = FindNewTargetInRange();
-                if (target == null) return;
-            }
+            if (target.IsDead()) return;
 
             if (!GetIsInRange(target.transform))
             {
@@ -120,37 +115,6 @@ namespace RPG.Combat
             }
         }
 
-        private Health FindNewTargetInRange()
-        {
-            Health best = null;
-            float bestDistance = Mathf.Infinity;
-            foreach (var candidate in FindAllTargetsInRange())
-            {
-                float candidateDistance = Vector3.Distance(
-                    transform.position, candidate.transform.position);
-                if (candidateDistance < bestDistance)
-                {
-                    best = candidate;
-                    bestDistance = candidateDistance;
-                }
-            }
-            return best;
-        }
-
-        private IEnumerable<Health> FindAllTargetsInRange()
-        {
-            RaycastHit[] raycastHits = Physics.SphereCastAll(transform.position,
-                                                autoAttackRange, Vector3.up);
-            foreach (var hit in raycastHits)
-            {
-                Health health = hit.transform.GetComponent<Health>();
-                if (health == null) continue;
-                if (health.IsDead()) continue;
-                if (health.gameObject == gameObject) continue;
-                yield return health;
-            }
-        }
-
         private void TriggerAttack()
         {
             GetComponent<Animator>().ResetTrigger("stopAttack");
@@ -163,12 +127,6 @@ namespace RPG.Combat
             if(target == null) { return; }
 
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-            BaseStats targetBaseStats = target.GetComponent<BaseStats>();
-            if (targetBaseStats != null)
-            {
-                float defence = targetBaseStats.GetStat(Stat.Defence);
-                damage /= 1 + defence / damage;
-            }
 
             if (currentWeapon.value != null)
             {
@@ -224,6 +182,18 @@ namespace RPG.Combat
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
+        public object CaptureState()
+        {
+            return currentWeaponConfig.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            WeaponConfig weapon = UnityEngine.Resources.Load<WeaponConfig>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }

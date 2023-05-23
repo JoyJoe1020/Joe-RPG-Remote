@@ -94,8 +94,8 @@ namespace GameDevTV.Inventories
         {
             if (dockedItems.ContainsKey(index))
             {
-                bool wasUsed = dockedItems[index].item.Use(user);
-                if (wasUsed && dockedItems[index].item.isConsumable())
+                dockedItems[index].item.Use(user);
+                if (dockedItems[index].item.isConsumable())
                 {
                     RemoveItems(index, 1);
                 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameDevTV.Saving;
-using GameDevTV.Utils;
 
 namespace GameDevTV.Inventories
 {
@@ -12,7 +11,7 @@ namespace GameDevTV.Inventories
     /// 
     /// This component should be placed on the GameObject tagged "Player".
     /// </summary>
-    public class Equipment : MonoBehaviour, ISaveable, IPredicateEvaluator
+    public class Equipment : MonoBehaviour, ISaveable
     {
         // STATE
         Dictionary<EquipLocation, EquipableItem> equippedItems = new Dictionary<EquipLocation, EquipableItem>();
@@ -43,7 +42,7 @@ namespace GameDevTV.Inventories
         /// </summary>
         public void AddItem(EquipLocation slot, EquipableItem item)
         {
-            Debug.Assert(item.CanEquip(slot, this));
+            Debug.Assert(item.GetAllowedEquipLocation() == slot);
 
             equippedItems[slot] = item;
 
@@ -99,24 +98,6 @@ namespace GameDevTV.Inventories
                     equippedItems[pair.Key] = item;
                 }
             }
-
-            equipmentUpdated?.Invoke();
-        }
-
-        public bool? Evaluate(string predicate, string[] parameters)
-        {
-            if (predicate == "HasItemEquiped")
-            {
-                foreach (var item in equippedItems.Values)
-                {
-                    if (item.GetItemID() == parameters[0])
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return null;
         }
     }
 }

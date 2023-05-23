@@ -5,7 +5,6 @@ namespace RPG.Stats
         Player,
         Grunt,
         Mage,
-        Archer,
-        Heavy
+        Archer
     }
 }
