@@ -12,7 +12,7 @@ namespace RPG.Attributes
     {
         [SerializeField] float regenerationPercentage = 70;
         [SerializeField] TakeDamageEvent takeDamage;
-        public UnityEvent onDie;
+        [SerializeField] UnityEvent onDie;
 
         [System.Serializable]
         public class TakeDamageEvent : UnityEvent<float>
@@ -21,7 +21,7 @@ namespace RPG.Attributes
 
         LazyValue<float> healthPoints;
 
-        bool wasDeadLastFrame = false;
+        bool isDead = false;
 
         private void Awake() {
             healthPoints = new LazyValue<float>(GetInitialHealth);
@@ -47,29 +47,28 @@ namespace RPG.Attributes
 
         public bool IsDead()
         {
-            return healthPoints.value <= 0;
+            return isDead;
         }
 
         public void TakeDamage(GameObject instigator, float damage)
         {
             healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
             
-            if(IsDead())
+            if(healthPoints.value == 0)
             {
                 onDie.Invoke();
+                Die();
                 AwardExperience(instigator);
             } 
             else
             {
                 takeDamage.Invoke(damage);
             }
-            UpdateState();
         }
 
         public void Heal(float healthToRestore)
         {
             healthPoints.value = Mathf.Min(healthPoints.value + healthToRestore, GetMaxHealthPoints());
-            UpdateState();
         }
 
         public float GetHealthPoints()
@@ -92,21 +91,13 @@ namespace RPG.Attributes
             return healthPoints.value / GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
-        private void UpdateState()
+        private void Die()
         {
-            Animator animator = GetComponent<Animator>();
-            if (!wasDeadLastFrame && IsDead())
-            {
-                animator.SetTrigger("die");
-                GetComponent<ActionScheduler>().CancelCurrentAction();
-            }
+            if (isDead) return;
 
-            if (wasDeadLastFrame && !IsDead())
-            {
-                animator.Rebind();
-            }
-
-            wasDeadLastFrame = IsDead();
+            isDead = true;
+            GetComponent<Animator>().SetTrigger("die");
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 
         private void AwardExperience(GameObject instigator)
@@ -132,7 +123,10 @@ namespace RPG.Attributes
         {
             healthPoints.value = (float) state;
             
-            UpdateState();
+            if (healthPoints.value <= 0)
+            {
+                Die();
+            }
         }
     }
 }
