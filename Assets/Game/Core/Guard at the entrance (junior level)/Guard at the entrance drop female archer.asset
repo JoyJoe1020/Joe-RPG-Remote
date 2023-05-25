@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d0e92be135e614ca8c040b7b514d1e, type: 3}
+  m_Name: Guard at the entrance drop female archer
+  m_EditorClassIdentifier: 
+  potentialDrops:
+  - item: {fileID: 11400000, guid: e24424a2c9b854d44bdca41b0ac2ed0c, type: 2}
+    relativeChance:
+    - 100
+    minNumber: 01000000
+    maxNumber: 01000000
+  dropChancePercentage:
+  - 100
+  minDrops: 01000000
+  maxDrops: 01000000
