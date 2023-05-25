@@ -11134,6 +11134,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1080417003836058785, guid: 00254deafec00df47a5cb22b82fa7df2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2711105610579158119, guid: 00254deafec00df47a5cb22b82fa7df2,
         type: 3}
       propertyPath: defaultWeapon
@@ -16704,7 +16709,7 @@ PrefabInstance:
     - target: {fileID: 2900253175465314912, guid: 04bff0434086c5742ae09ad645689835,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00029574355
+      value: 0.00018620833
       objectReference: {fileID: 0}
     - target: {fileID: 2967994056391172417, guid: 04bff0434086c5742ae09ad645689835,
         type: 3}
