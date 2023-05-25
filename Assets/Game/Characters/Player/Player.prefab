@@ -255,6 +255,11 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 2080957664971146676, guid: 750e3c6876a501e42b5827ec7a3d24d1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1db31cf2c3331a348ab67da9e403502c, type: 3}
     - target: {fileID: 2495515040136399149, guid: 750e3c6876a501e42b5827ec7a3d24d1,
         type: 3}
       propertyPath: startingLevel
@@ -350,6 +355,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4391565082401990962, guid: 750e3c6876a501e42b5827ec7a3d24d1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1131b0be7e782b84d9005e3a24d552a7, type: 3}
     - target: {fileID: 5401972681186859721, guid: 750e3c6876a501e42b5827ec7a3d24d1,
         type: 3}
       propertyPath: m_Name
