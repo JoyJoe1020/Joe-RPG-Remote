@@ -1966,7 +1966,7 @@ PrefabInstance:
     - target: {fileID: 1466135209984916882, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 1466135209984916882, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
@@ -11302,7 +11302,7 @@ PrefabInstance:
     - target: {fileID: 9169026001514661365, guid: 00254deafec00df47a5cb22b82fa7df2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.49
+      value: -1.55
       objectReference: {fileID: 0}
     - target: {fileID: 9169026001514661365, guid: 00254deafec00df47a5cb22b82fa7df2,
         type: 3}
@@ -11312,7 +11312,7 @@ PrefabInstance:
     - target: {fileID: 9169026001514661365, guid: 00254deafec00df47a5cb22b82fa7df2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 9.64
       objectReference: {fileID: 0}
     - target: {fileID: 9169026001514661365, guid: 00254deafec00df47a5cb22b82fa7df2,
         type: 3}
@@ -16863,7 +16863,7 @@ PrefabInstance:
     - target: {fileID: 2900253175465314912, guid: 04bff0434086c5742ae09ad645689835,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00018620833
+      value: 0.000042915446
       objectReference: {fileID: 0}
     - target: {fileID: 2967994056391172417, guid: 04bff0434086c5742ae09ad645689835,
         type: 3}
@@ -16879,6 +16879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482688587702378045, guid: 04bff0434086c5742ae09ad645689835,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -1255.9662
       objectReference: {fileID: 0}
     - target: {fileID: 3555783610882983192, guid: 04bff0434086c5742ae09ad645689835,
         type: 3}
