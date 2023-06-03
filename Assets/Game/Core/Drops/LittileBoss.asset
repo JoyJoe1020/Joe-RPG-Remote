@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d0e92be135e614ca8c040b7b514d1e, type: 3}
+  m_Name: LittileBoss
+  m_EditorClassIdentifier: 
+  potentialDrops:
+  - item: {fileID: 11400000, guid: a93734059df948941bc98ff3edc1ade6, type: 2}
+    relativeChance:
+    - 100
+    minNumber: e8030000
+    maxNumber: 40060000
+  - item: {fileID: 11400000, guid: 629178aff4dad64439109e22245ae586, type: 2}
+    relativeChance:
+    - 100
+    minNumber: 01000000
+    maxNumber: 01000000
+  - item: {fileID: 11400000, guid: ccb9d52d625d0704cb9a2caf9cbf62ed, type: 2}
+    relativeChance:
+    - 100
+    minNumber: 01000000
+    maxNumber: 01000000
+  - item: {fileID: 11400000, guid: de56653486e32f3408bd4b9f91d571bb, type: 2}
+    relativeChance:
+    - 100
+    minNumber: 01000000
+    maxNumber: 01000000
+  - item: {fileID: 11400000, guid: d7c0c8d4973a09742a89cdcbcca1bb3a, type: 2}
+    relativeChance:
+    - 100
+    minNumber: 01000000
+    maxNumber: 01000000
+  dropChancePercentage:
+  - 100
+  minDrops: 04000000
+  maxDrops: 06000000
