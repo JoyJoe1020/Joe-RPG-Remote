@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307d87d27f907ab409224ea823bb2f13, type: 3}
+  m_Name: SaveSister
+  m_EditorClassIdentifier: 
+  objectives:
+  - reference: KillGuard
+    description: Kill the guard around the girl.
+    usesCondition: 0
+    completionCondition:
+      and: []
+  rewards:
+  - number: 1000
+    item: {fileID: 11400000, guid: 8a6e92726c664054d91e2fa36f225b9a, type: 2}
