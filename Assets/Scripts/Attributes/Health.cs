@@ -37,6 +37,11 @@ namespace RPG.Attributes
             healthPoints.ForceInit();
         }
 
+        private void Update()
+        {
+            UpdateState();
+        }
+
         private void OnEnable() {
             GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
         }

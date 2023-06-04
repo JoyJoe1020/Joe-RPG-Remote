@@ -49,12 +49,7 @@ namespace RPG.Combat
         {
             timeSinceLastAttack += Time.deltaTime;
 
-            if (target == null) return;
-            if (target.IsDead()) 
-            {
-                target = FindNewTargetInRange();
-                if (target == null) return;
-            }
+            if (target == null || target.IsDead()) return;
 
             if (!GetIsInRange(target.transform))
             {
