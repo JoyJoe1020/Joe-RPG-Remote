@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56881fcf0921e9b4494be33043ef809f, type: 3}
   m_Name: Gold Piece
   m_EditorClassIdentifier: 
-  itemID: 834c9f93-0206-4e71-94a2-c1623a16c87c
+  itemID: 881947b8-b367-463a-b8ec-b13dd905f5c6
   displayName: Gold Piece
   description: 
   icon: {fileID: 21300000, guid: 2c317dae05e94f140878e9fcf787583e, type: 3}

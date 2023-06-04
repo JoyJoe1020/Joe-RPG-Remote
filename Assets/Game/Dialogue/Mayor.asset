@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9155993853109592528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 95d8fd07-5525-4d62-ae74-63f7645eaea1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u4E3A\u4EC0\u4E48\u6211\u4EEC\u5927\u5BB6\u4F1A\u6765\u5230\u8FD9\u4E2A\u9E1F\u4E0D\u62C9\u5C4E\u7684\u8352\u829C\u4E4B\u5730\u5417\uFF1F\u60A8\u80FD\u95EE\u51FA\u8FD9\u4E2A\u95EE\u9898\u6211\u5E76\u4E0D\u60CA\u8BB6\uFF0C\u6751\u5B50"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 330
+    y: 132
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-5224455968596222121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,8 +38,9 @@ MonoBehaviour:
   m_Name: 85e6cacd-47e2-4a5a-a309-9a7117e0c3f5
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: "\u8FD9\u7A76\u7ADF\u53D1\u751F\u4E86\u4EC0\u4E48\u4E8B\u60C5\uFF1F\u4E3A\u4F55\u9547\u6C11\u4EEC\u8EB2\u5230\u4E86\u5982\u6B64\u8352\u51C9\u7684\u5730\u65B9\uFF1F"
-  children: []
+  text: "\u60A8\u5C31\u662F\u4F20\u8BF4\u4E2D\u6E38\u884C\u4E8E\u5404\u5904\uFF0C\u964D\u5996\u9664\u9B54\u7684\u9634\u53F8\u58A8\u6F13\u5427\uFF0C\u60A8\u80FD\u6765\u5230\u8FD9\u91CC\u771F\u662F\u592A\u597D\u4E86\uFF01"
+  children:
+  - 95d8fd07-5525-4d62-ae74-63f7645eaea1
   rect:
     serializedVersion: 2
     x: 80
@@ -39,4 +65,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -5224455968596222121}
+  - {fileID: -9155993853109592528}
   newNodeOffset: {x: 250, y: 0}

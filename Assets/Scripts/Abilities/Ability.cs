@@ -34,9 +34,8 @@ namespace RPG.Abilities
             ActionScheduler actionScheduler = user.GetComponent<ActionScheduler>();
             actionScheduler.StartAction(data);
 
-            targetingStrategy.StartTargeting(data,
-                () =>
-                {
+            targetingStrategy.StartTargeting(data, 
+                () => {
                     TargetAquired(data);
                 });
 
@@ -57,7 +56,7 @@ namespace RPG.Abilities
             {
                 data.SetTargets(filterStrategy.Filter(data.GetTargets()));
             }
-
+            
             foreach (var effect in effectStrategies)
             {
                 effect.StartEffect(data, EffectFinished);
@@ -66,7 +65,7 @@ namespace RPG.Abilities
 
         private void EffectFinished()
         {
-
+            
         }
     }
 }

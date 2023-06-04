@@ -3,8 +3,7 @@ using GameDevTV.Inventories;
 using GameDevTV.Saving;
 using UnityEngine;
 
-namespace RPG.Inventories
-{
+namespace RPG.Inventories {
     public class Purse : MonoBehaviour, ISaveable, IItemStore
     {
         [SerializeField] float startingBalance = 400f;
@@ -13,8 +12,7 @@ namespace RPG.Inventories
 
         public event Action onChange;
 
-        private void Awake()
-        {
+        private void Awake() {
             balance = startingBalance;
         }
 
