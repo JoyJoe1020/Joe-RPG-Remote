@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2103994016755512054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 6f80e2ba-3e74-482f-aafa-4b6dc1bc5aaf
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u6211\u5C31\u77E5\u9053\u4ED6\u4EEC\u4F1A\u60F3\u529E\u6CD5\u6765\u6551\u6211\u7684\uFF01"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 489
+    y: 85
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20020754e2d077c45a6d80bb16361ff0, type: 3}
+  m_Name: LittleSister
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 85710596283125439}
+  - {fileID: 848966303994900197}
+  - {fileID: -2103994016755512054}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &85710596283125439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: e7c73065-1ccc-42d2-a354-d5f0eedb4de4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u8C22\u8C22\u4F60\u5927\u59D0\u59D0\uFF01\u7EC8\u4E8E\u5F97\u6551\u4E86\uFF01"
+  children:
+  - 5ce4959a-d84e-4362-906e-9083915edc36
+  rect:
+    serializedVersion: 2
+    x: 2
+    y: 85
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &848966303994900197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 5ce4959a-d84e-4362-906e-9083915edc36
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u5FEB\u56DE\u53BB\u5427\uFF0C\u4F60\u7684\u54E5\u54E5\u59D0\u59D0\u4EEC\u8FD8\u5728\u5BB6\u91CC\u7B49\u7740\u4F60\u5462\u3002"
+  children:
+  - 6f80e2ba-3e74-482f-aafa-4b6dc1bc5aaf
+  rect:
+    serializedVersion: 2
+    x: 239
+    y: 85
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
