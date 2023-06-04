@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307d87d27f907ab409224ea823bb2f13, type: 3}
+  m_Name: LittleBoss
+  m_EditorClassIdentifier: 
+  objectives:
+  - reference: kill
+    description: kill little boss
+    usesCondition: 0
+    completionCondition:
+      and: []
+  rewards:
+  - number: 1000
+    item: {fileID: 11400000, guid: 8a6e92726c664054d91e2fa36f225b9a, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 629178aff4dad64439109e22245ae586, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 1db337e06808e1b4286000a12d64e572, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: e24424a2c9b854d44bdca41b0ac2ed0c, type: 2}

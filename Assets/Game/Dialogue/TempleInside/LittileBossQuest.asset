@@ -1,0 +1,286 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7973536569724085546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: cb69e95d-aedc-454b-9013-2fd50f6ba0f1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u554A\uFF0C\u62B1\u6B49\uFF0C\u56E0\u4E3A\u6211\u5B9E\u5728\u662F\u592A\u6068\u4E86\uFF01"
+  children:
+  - de58142b-ff87-4b3e-84cc-1ca9983a0a65
+  rect:
+    serializedVersion: 2
+    x: 1029
+    y: 146
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-7093127631679222331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 3adaf5c7-c740-4ce2-9107-0d146be289b3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u60A8\u597D\u9634\u53F8\u5927\u4EBA\uFF0C\u6211\u8FD9\u91CC\u6709\u4E00\u4E2A\u5C0F\u5C0F\u7684\u8BF7\u6C42\u60F3\u8BF7\u4F60\u5E2E\u52A9\u6211..."
+  children:
+  - a478947e-e304-47a3-a620-7d53e3b05e62
+  - 591a9206-fe36-475c-be55-abf6553a9723
+  rect:
+    serializedVersion: 2
+    x: 19
+    y: 105
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-3847642772323527187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: de58142b-ff87-4b3e-84cc-1ca9983a0a65
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u4E0D\u8FC7\u4ED6\u8981\u662F\u6321\u6211\u7684\u8DEF\u7684\u8BDD\uFF0C\u6211\u4E5F\u4E0D\u4F1A\u653E\u8FC7\u4ED6\u7684\u3002"
+  children:
+  - 3c13e180-493b-4fad-8975-f0ea702f7e94
+  rect:
+    serializedVersion: 2
+    x: 1279
+    y: 145
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: GiveQuest
+  condition:
+    and: []
+--- !u!114 &-2226830342729978117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: a478947e-e304-47a3-a620-7d53e3b05e62
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u8BB2\u5427..."
+  children:
+  - aa2ca857-63e3-443e-b916-66c44f1732b3
+  rect:
+    serializedVersion: 2
+    x: 296
+    y: 26
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-259297738064800757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 3ca2eaf4-a257-403d-829c-d8ca61122759
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u62B1\u6B49\uFF0C\u4E3A\u522B\u4EBA\u590D\u4EC7\u4E0D\u662F\u6211\u5E72\u8FD9\u9879\u5DEE\u4E8B\u7684\u521D\u8877\u3002"
+  children:
+  - cb69e95d-aedc-454b-9013-2fd50f6ba0f1
+  rect:
+    serializedVersion: 2
+    x: 797
+    y: 153
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20020754e2d077c45a6d80bb16361ff0, type: 3}
+  m_Name: LittileBossQuest
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -7093127631679222331}
+  - {fileID: -2226830342729978117}
+  - {fileID: 1341036347155349111}
+  - {fileID: 3942673220628603524}
+  - {fileID: 5586662212528045290}
+  - {fileID: 874936650029957146}
+  - {fileID: -259297738064800757}
+  - {fileID: -7973536569724085546}
+  - {fileID: -3847642772323527187}
+  - {fileID: 7261018963941972108}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &874936650029957146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: fa2afbb7-e1eb-4793-8809-74b0847540c4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u4EA4\u7ED9\u6211\u5427\u3002"
+  children:
+  - 3c13e180-493b-4fad-8975-f0ea702f7e94
+  rect:
+    serializedVersion: 2
+    x: 803
+    y: -3
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: GiveQuest
+  condition:
+    and: []
+--- !u!114 &1341036347155349111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 591a9206-fe36-475c-be55-abf6553a9723
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u62B1\u6B49\uFF0C\u6CA1\u7A7A\u3002"
+  children:
+  - 5d31d46b-8025-4c1d-9814-2fae5af6e56e
+  rect:
+    serializedVersion: 2
+    x: 265
+    y: 208
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3942673220628603524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 5d31d46b-8025-4c1d-9814-2fae5af6e56e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u597D...\u597D\u5427\u3002"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 542
+    y: 168
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &5586662212528045290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: aa2ca857-63e3-443e-b916-66c44f1732b3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u6211\u60F3\u8BF7\u4F60\u6740\u6389\u9547\u5B50\u5916\u56F4\u7684\u90A3\u4E2A\u5DE8\u578B\u767D\u9AA8\u5996\uFF0C\u4E24\u5E74\u524D\u6211\u7684\u7236\u6BCD...\u8BF7\u60A8\u4E00\u5B9A\u8981\u5E2E\u6211\u62A5\u4EC7\uFF01"
+  children:
+  - fa2afbb7-e1eb-4793-8809-74b0847540c4
+  - 3ca2eaf4-a257-403d-829c-d8ca61122759
+  rect:
+    serializedVersion: 2
+    x: 546
+    y: 25
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &7261018963941972108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 3c13e180-493b-4fad-8975-f0ea702f7e94
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u62DC\u6258\u4E86\uFF01"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1508
+    y: 47
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

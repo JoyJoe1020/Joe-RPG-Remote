@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 7fc06bac-1338-41aa-ac7c-04fb0991ebed
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: You will need better equipment to fight them!
+  text: "\u4F60\u53EF\u80FD\u9700\u8981\u66F4\u597D\u7684\u88C5\u5907\u624D\u80FD\u6253\u8D25\u4ED6\u4EEC\u3002"
   children: []
   rect:
     serializedVersion: 2
-    x: 248
-    y: 50
+    x: 277
+    y: 31
     width: 200
     height: 100
   onEnterAction: 
@@ -47,12 +47,12 @@ MonoBehaviour:
   m_Name: 81c1c598-ac5f-4159-b8e5-da6a205629bc
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Go beat them up for me!
+  text: "\u6253\u8D25\u4ED6\u4EEC\u5427\uFF01"
   children: []
   rect:
     serializedVersion: 2
-    x: 251
-    y: 156
+    x: 285
+    y: 168
     width: 200
     height: 100
   onEnterAction: 
@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Name: 6816289b-6564-4050-afae-0ba85a60c94b
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: There is a guard training barracks this way.
+  text: "\u524D\u9762\u6CB3\u8FB9\u6709\u4E00\u6574\u4E2A\u5996\u602A\u5C0F\u961F\u3002"
   children:
   - 7fc06bac-1338-41aa-ac7c-04fb0991ebed
   - 81c1c598-ac5f-4159-b8e5-da6a205629bc
   rect:
     serializedVersion: 2
-    x: -6
-    y: 47
+    x: -3
+    y: 89
     width: 200
     height: 100
   onEnterAction: 

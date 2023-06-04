@@ -7088,7 +7088,7 @@ PrefabInstance:
     - target: {fileID: 6001019031784603398, guid: c0158f0d0cb537a469eac82a77d169e1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.69
+      value: 27.66
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: c0158f0d0cb537a469eac82a77d169e1,
         type: 3}
@@ -7098,7 +7098,7 @@ PrefabInstance:
     - target: {fileID: 6001019031784603398, guid: c0158f0d0cb537a469eac82a77d169e1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.7299999
+      value: -1.82
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: c0158f0d0cb537a469eac82a77d169e1,
         type: 3}
@@ -7135,10 +7135,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: c0158f0d0cb537a469eac82a77d169e1,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 5807477236c1b8b40a0be83fee41e1e5,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: c0158f0d0cb537a469eac82a77d169e1,
+        type: 3}
+      propertyPath: conversantName
+      value: "\u53D1\u6101\u4E8E\u5730\u4E0B\u667E\u4E0D\u5E72\u6E7F\u8863\u670D\u7684\u7537\u9547\u6C11"
+      objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: c0158f0d0cb537a469eac82a77d169e1,
         type: 3}
       propertyPath: m_Name
       value: NPC3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504800614734690110, guid: c0158f0d0cb537a469eac82a77d169e1,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0158f0d0cb537a469eac82a77d169e1, type: 3}
@@ -11567,6 +11583,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: c320e27d3855906488cdb4f91649010c,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
+        type: 3}
+      propertyPath: conversantName
+      value: "\u5F5D\u65CF\u5973\u9547\u6C11"
+      objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
         type: 3}
       propertyPath: m_Name
@@ -14903,6 +14930,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: 1441cf412eec5404aad7095f330e60cc,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: d7a3be98f359d914b978bd73455e582b,
+        type: 2}
     - target: {fileID: 6204304448336838897, guid: 1441cf412eec5404aad7095f330e60cc,
         type: 3}
       propertyPath: conversantName
@@ -19317,7 +19350,7 @@ PrefabInstance:
     - target: {fileID: 6001019031784603398, guid: 598a99fea274e1c44ae766e3902718bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.54
+      value: 28.4
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: 598a99fea274e1c44ae766e3902718bf,
         type: 3}
@@ -19327,7 +19360,7 @@ PrefabInstance:
     - target: {fileID: 6001019031784603398, guid: 598a99fea274e1c44ae766e3902718bf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.7
+      value: 3.31
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: 598a99fea274e1c44ae766e3902718bf,
         type: 3}
@@ -19363,6 +19396,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: 598a99fea274e1c44ae766e3902718bf,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: a4792719868c73547891f2617cdff754,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: 598a99fea274e1c44ae766e3902718bf,
+        type: 3}
+      propertyPath: conversantName
+      value: "\u6234\u5E3D\u5B50\u7684\u7537\u9547\u6C11\u4E8C\u53F7"
       objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: 598a99fea274e1c44ae766e3902718bf,
         type: 3}
@@ -20577,6 +20621,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: 486d389d97d4d6145bc694a0d1a941e4,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 4149b67dc8d71044a90e51c25e9391df,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: 486d389d97d4d6145bc694a0d1a941e4,
+        type: 3}
+      propertyPath: conversantName
+      value: "\u5F5D\u65CF\u5973\u9547\u6C11"
       objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: 486d389d97d4d6145bc694a0d1a941e4,
         type: 3}
@@ -33272,7 +33327,7 @@ PrefabInstance:
     - target: {fileID: 5263524460118599961, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -572.2458
+      value: -572.2417
       objectReference: {fileID: 0}
     - target: {fileID: 5263917500653042737, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
@@ -38897,6 +38952,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 958571741}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &959659808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7525738798028903267, guid: 73f21ab47aae0204ab828ab500f8eaf2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1786541433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &959659809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959659808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adecd80eba9ef940bc5b8fc57658298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: GiveQuest
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 959659810}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
+        m_MethodName: GiveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &959659810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959659808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f8be4928d6b7a42ae3817a73e03a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: bcbe914eeb13d5a49b1b32e161575238, type: 2}
 --- !u!1001 &960202644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44722,17 +44824,17 @@ PrefabInstance:
     - target: {fileID: 6001019031784603398, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.87
+      value: 37.35
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.905134
+      value: -4.56
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.43
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
         type: 3}
@@ -44768,6 +44870,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 58bbd9e2f3beb84489e10e946e492dce,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
+        type: 3}
+      propertyPath: conversantName
+      value: "\u5F5D\u65CF\u5973\u9547\u6C11"
       objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: b4ab9e63109b1e34aa21e1b051b5bb38,
         type: 3}
@@ -47857,6 +47970,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: 73f21ab47aae0204ab828ab500f8eaf2,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 604d53dd7153b114daa7e2b9a8a26ad4,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: 73f21ab47aae0204ab828ab500f8eaf2,
+        type: 3}
+      propertyPath: conversantName
+      value: "\u6B63\u5728\u6574\u7406\u4E66\u7C4D\u7684\u5973\u9547\u6C11"
+      objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: 73f21ab47aae0204ab828ab500f8eaf2,
         type: 3}
       propertyPath: m_Name
@@ -49788,13 +49912,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6204304448336838897, guid: 1441cf412eec5404aad7095f330e60cc,
         type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 5945fc06813e4124ab2cb8c72b2dc4cb,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: 1441cf412eec5404aad7095f330e60cc,
+        type: 3}
       propertyPath: conversantName
       value: "\u536B\u5175\u6C90\u4E91\u5929"
       objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: 1441cf412eec5404aad7095f330e60cc,
         type: 3}
       propertyPath: m_Name
-      value: KillAllEnemies
+      value: KillLittleBoss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1441cf412eec5404aad7095f330e60cc, type: 3}
@@ -54239,6 +54369,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: b7be11e3e576861419f51129f4381340,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
+        type: 3}
+      propertyPath: conversantName
+      value: "\u6234\u5E3D\u5B50\u7684\u7537\u9547\u6C11\u4E09\u53F7"
+      objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
         type: 3}
       propertyPath: m_Name
@@ -57526,6 +57667,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1433547638}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1433586403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7525738798028903267, guid: 1441cf412eec5404aad7095f330e60cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1210297353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1433586404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433586403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adecd80eba9ef940bc5b8fc57658298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: GiveQuest
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1433586405}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
+        m_MethodName: GiveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1433586405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433586403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f8be4928d6b7a42ae3817a73e03a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 72ec3033115c2dd48a124b868441d430, type: 2}
 --- !u!1001 &1434342532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58753,6 +58941,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: 1441cf412eec5404aad7095f330e60cc,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: d7a3be98f359d914b978bd73455e582b,
+        type: 2}
     - target: {fileID: 6204304448336838897, guid: 1441cf412eec5404aad7095f330e60cc,
         type: 3}
       propertyPath: conversantName
@@ -64382,7 +64576,7 @@ PrefabInstance:
     - target: {fileID: 6001019031784603398, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.65
+      value: 27.91
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
         type: 3}
@@ -64392,7 +64586,7 @@ PrefabInstance:
     - target: {fileID: 6001019031784603398, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.75
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 6001019031784603398, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
         type: 3}
@@ -64428,6 +64622,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: f3510e5efccf0b54dbb6692dba2ed062,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
+        type: 3}
+      propertyPath: conversantName
+      value: "\u6234\u5E3D\u5B50\u7684\u9547\u6C11"
       objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: 5aaf7f26c2b0fe3418a98cbf3e099d77,
         type: 3}
@@ -71659,8 +71864,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6204304448336838897, guid: 73f21ab47aae0204ab828ab500f8eaf2,
         type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e563602688183c4588b338ad74da864,
+        type: 2}
+    - target: {fileID: 6204304448336838897, guid: 73f21ab47aae0204ab828ab500f8eaf2,
+        type: 3}
       propertyPath: conversantName
-      value: "\u9700\u8981\u88AB\u5E2E\u52A9\u7684\u9547\u6C11\u5F20\u5973\u58EB"
+      value: "\u9700\u8981\u88AB\u5E2E\u52A9\u7684\u9547\u6C11\u5973\u58EB"
       objectReference: {fileID: 0}
     - target: {fileID: 7525738798028903267, guid: 73f21ab47aae0204ab828ab500f8eaf2,
         type: 3}
@@ -81562,6 +81773,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204304448336838897, guid: 1441cf412eec5404aad7095f330e60cc,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: d7a3be98f359d914b978bd73455e582b,
+        type: 2}
     - target: {fileID: 6204304448336838897, guid: 1441cf412eec5404aad7095f330e60cc,
         type: 3}
       propertyPath: conversantName

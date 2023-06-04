@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1a9c1b80-e600-47c2-9f70-500b5ea76736
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: That sword might do the trick!
+  text: "\u8FD9\u8EAB\u884C\u5934\u8DB3\u591F\u60A8\u6218\u80DC\u4ED6\u4EEC\u4E86\uFF01"
   children: []
   rect:
     serializedVersion: 2
@@ -50,8 +50,8 @@ MonoBehaviour:
   - 1a9c1b80-e600-47c2-9f70-500b5ea76736
   rect:
     serializedVersion: 2
-    x: 10
-    y: 84
+    x: 4
+    y: 167
     width: 200
     height: 100
   onEnterAction: 
@@ -89,12 +89,12 @@ MonoBehaviour:
   m_Name: f342e37d-775a-42c2-8415-bfea9271e9c3
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: hush
+  text: "\u5FEB\u53BB\u5427\uFF01"
   children: []
   rect:
     serializedVersion: 2
     x: 261
-    y: 183
+    y: 182
     width: 200
     height: 100
   onEnterAction: 
