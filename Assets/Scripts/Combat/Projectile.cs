@@ -7,31 +7,34 @@ namespace RPG.Combat
     // 投射物类，用于处理投射物的行为
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] float speed = 1; // 投射物速度
-        [SerializeField] bool isHoming = true; // 是否追踪目标
-        [SerializeField] GameObject hitEffect = null; // 命中效果
-        [SerializeField] float maxLifeTime = 10; // 最大存活时间
-        [SerializeField] GameObject[] destroyOnHit = null; // 命中后销毁的对象
-        [SerializeField] float lifeAfterImpact = 2; // 命中后的存活时间
-        [SerializeField] UnityEvent onHit; // 命中事件
+        [SerializeField] float speed = 1; // 投射物的速度
+        [SerializeField] bool isHoming = true; // 投射物是否具有追踪目标的功能
+        [SerializeField] GameObject hitEffect = null; // 命中目标时的特效
+        [SerializeField] float maxLifeTime = 10; // 投射物的最大生存时间
+        [SerializeField] GameObject[] destroyOnHit = null; // 命中目标后需要销毁的游戏对象数组
+        [SerializeField] float lifeAfterImpact = 2; // 投射物命中目标后的生存时间
+        [SerializeField] UnityEvent onHit; // 当投射物命中目标时的事件
 
-        Health target = null; // 攻击目标
-        Vector3 targetPoint; // 目标点
-        GameObject instigator = null; // 攻击者
-        float damage = 0; // 伤害值
+        Health target = null; // 攻击的目标
+        Vector3 targetPoint; // 攻击的目标点
+        GameObject instigator = null; // 攻击的发起者
+        float damage = 0; // 攻击造成的伤害
 
+        // 在投射物实例化后首次更新前调用
         private void Start()
         {
-            transform.LookAt(GetAimLocation()); // 面向目标点
+            transform.LookAt(GetAimLocation()); // 让投射物面向攻击的目标点
         }
 
+        // 每帧调用一次
         void Update()
         {
-            if (target != null && isHoming && !target.IsDead()) // 如果有目标且追踪目标
+            // 如果设置了攻击目标，且投射物具有追踪功能，并且目标还未死亡
+            if (target != null && isHoming && !target.IsDead())
             {
-                transform.LookAt(GetAimLocation()); // 面向目标
+                transform.LookAt(GetAimLocation()); // 让投射物面向攻击的目标
             }
-            transform.Translate(Vector3.forward * speed * Time.deltaTime); // 前进
+            transform.Translate(Vector3.forward * speed * Time.deltaTime); // 让投射物向前移动
         }
 
         public void SetTarget(Health target, GameObject instigator, float damage)
@@ -54,44 +57,46 @@ namespace RPG.Combat
             Destroy(gameObject, maxLifeTime); // 设置最大存活时间
         }
 
+        // 获取攻击的目标点
         private Vector3 GetAimLocation()
         {
-            if (target == null)
+            if (target == null) // 如果没有设置攻击目标
             {
-                return targetPoint; // 返回目标点
+                return targetPoint; // 直接返回攻击的目标点
             }
             CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
-            if (targetCapsule == null)
+            if (targetCapsule == null) // 如果目标没有胶囊碰撞体组件
             {
-                return target.transform.position; // 返回目标位置
+                return target.transform.position; // 返回目标的位置作为攻击目标点
             }
-            return target.transform.position + Vector3.up * targetCapsule.height / 2; // 返回目标高度
+            return target.transform.position + Vector3.up * targetCapsule.height / 2; // 否则返回目标胶囊碰撞体的中心点作为攻击目标点
         }
 
+        // 当投射物的触发器碰到其他游戏对象的碰撞器时调用
         private void OnTriggerEnter(Collider other)
         {
-            Health health = other.GetComponent<Health>(); // 获取生命值组件
-            if (target != null && health != target) return; // 如果目标不为空且不是攻击目标，则返回
-            if (health == null || health.IsDead()) return; // 如果没有生命值组件或目标已死亡，则返回
-            if (other.gameObject == instigator) return; // 如果是攻击者本身，则返回
-            health.TakeDamage(instigator, damage); // 对目标造成伤害
+            Health health = other.GetComponent<Health>(); // 获取被碰撞游戏对象的生命值组件
+            if (target != null && health != target) return; // 如果被碰撞游戏对象不是攻击的目标，则直接返回
+            if (health == null || health.IsDead()) return; // 如果被碰撞游戏对象没有生命值组件，或者已经死亡，则直接返回
+            if (other.gameObject == instigator) return; // 如果被碰撞游戏对象是攻击的发起者，则直接返回
 
-            speed = 0; // 停止移动
+            health.TakeDamage(instigator, damage); // 让被碰撞游戏对象受到攻击的伤害
 
-            onHit.Invoke(); // 触发命中事件
+            speed = 0; // 停止投射物的移动
+
+            onHit.Invoke(); // 触发投射物命中目标的事件
 
             if (hitEffect != null)
             {
-                Instantiate(hitEffect, GetAimLocation(), transform.rotation); // 生成命中效果
+                Instantiate(hitEffect, GetAimLocation(), transform.rotation); // 在攻击目标点生成命中特效
             }
 
             foreach (GameObject toDestroy in destroyOnHit)
             {
-                Destroy(toDestroy); // 销毁命中后的对象
+                Destroy(toDestroy); // 销毁命中目标后需要销毁的游戏对象
             }
 
-            Destroy(gameObject, lifeAfterImpact); // 销毁自身
-
+            Destroy(gameObject, lifeAfterImpact); // 在命中目标后一段时间后销毁投射物
         }
 
     }

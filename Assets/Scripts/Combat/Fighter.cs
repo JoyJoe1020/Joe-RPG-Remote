@@ -184,7 +184,7 @@ namespace RPG.Combat
 
         void Shoot()
         {
-            Hit();
+            Hit(); // 进行射击，实际上是调用Hit方法
         }
 
         private bool GetIsInRange(Transform targetTransform)
