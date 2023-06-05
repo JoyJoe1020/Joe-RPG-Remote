@@ -6,11 +6,12 @@ namespace RPG.Stats
 {
     public class Experience : MonoBehaviour, ISaveable
     {
-        [SerializeField] float experiencePoints = 0;
+        [SerializeField] float experiencePoints = 0;  // 经验值
 
-        public event Action onExperienceGained;
+        public event Action onExperienceGained;  // 经验值增加事件
 
-        private void Update() {
+        private void Update()
+        {
             if (Input.GetKey(KeyCode.E))
             {
                 GainExperience(Time.deltaTime * 1000);

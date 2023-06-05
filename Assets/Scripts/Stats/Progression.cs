@@ -7,13 +7,13 @@ namespace RPG.Stats
     [CreateAssetMenu(fileName = "Progression", menuName = "Stats/New Progression", order = 0)]
     public class Progression : ScriptableObject
     {
-        [SerializeField] ProgressionCharacterClass[] characterClasses = null;
+        [SerializeField] ProgressionCharacterClass[] characterClasses = null;  // 角色职业的进阶数据
 
-        Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable = null;
+        Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable = null;  // 数据查找表
 
         public float GetStat(Stat stat, CharacterClass characterClass, int level)
         {
-            BuildLookup();
+            BuildLookup();  // 构建查找表
 
             if (!lookupTable[characterClass].ContainsKey(stat))
             {
@@ -37,7 +37,7 @@ namespace RPG.Stats
 
         public int GetLevels(Stat stat, CharacterClass characterClass)
         {
-            BuildLookup();
+            BuildLookup();  // 构建查找表
 
             float[] levels = lookupTable[characterClass][stat];
             return levels.Length;
@@ -65,15 +65,15 @@ namespace RPG.Stats
         [System.Serializable]
         class ProgressionCharacterClass
         {
-            public CharacterClass characterClass;
-            public ProgressionStat[] stats;
+            public CharacterClass characterClass;  // 角色职业
+            public ProgressionStat[] stats;  // 进阶属性数据
         }
 
         [System.Serializable]
         class ProgressionStat
         {
-            public Stat stat;
-            public float[] levels;
+            public Stat stat;  // 属性
+            public float[] levels;  // 不同等级对应的属性值
         }
     }
 }

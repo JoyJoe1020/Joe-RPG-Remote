@@ -9,43 +9,46 @@ namespace RPG.Stats
     public class BaseStats : MonoBehaviour
     {
         [Range(1, 99)]
-        [SerializeField] int startingLevel = 1;
-        [SerializeField] CharacterClass characterClass;
-        [SerializeField] Progression progression = null;
-        [SerializeField] GameObject levelUpParticleEffect = null;
-        [SerializeField] bool shouldUseModifiers = false;
+        [SerializeField] int startingLevel = 1;  // 角色初始等级
+        [SerializeField] CharacterClass characterClass;  // 角色职业
+        [SerializeField] Progression progression = null;  // 角色进阶
+        [SerializeField] GameObject levelUpParticleEffect = null;  // 升级特效
+        [SerializeField] bool shouldUseModifiers = false;  // 是否使用修正值
 
-        public event Action onLevelUp;
+        public event Action onLevelUp;  // 角色升级事件
 
-        LazyValue<int> currentLevel;
+        LazyValue<int> currentLevel;  // 当前等级
 
         Experience experience;
 
-        private void Awake() {
+        private void Awake()
+        {
             experience = GetComponent<Experience>();
             currentLevel = new LazyValue<int>(CalculateLevel);
         }
 
-        private void Start() 
+        private void Start()
         {
             currentLevel.ForceInit();
         }
 
-        private void OnEnable() {
+        private void OnEnable()
+        {
             if (experience != null)
             {
                 experience.onExperienceGained += UpdateLevel;
             }
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             if (experience != null)
             {
                 experience.onExperienceGained -= UpdateLevel;
             }
         }
 
-        private void UpdateLevel() 
+        private void UpdateLevel()
         {
             int newLevel = CalculateLevel();
             if (newLevel > currentLevel.value)
@@ -58,12 +61,12 @@ namespace RPG.Stats
 
         private void LevelUpEffect()
         {
-            Instantiate(levelUpParticleEffect, transform);
+            Instantiate(levelUpParticleEffect, transform);  // 实例化升级特效
         }
 
         public float GetStat(Stat stat)
         {
-            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat)/100);
+            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat) / 100);
         }
 
         private float GetBaseStat(Stat stat)

@@ -10,13 +10,13 @@ namespace RPG.UI.Quests
     {
         public override bool CanCreateTooltip()
         {
-            return true;
+            return true;  // 可以创建提示框
         }
 
         public override void UpdateTooltip(GameObject tooltip)
         {
-            QuestStatus status = GetComponent<QuestItemUI>().GetQuestStatus();
-            tooltip.GetComponent<QuestTooltipUI>().Setup(status);
+            QuestStatus status = GetComponent<QuestItemUI>().GetQuestStatus();  // 获取任务项的任务状态
+            tooltip.GetComponent<QuestTooltipUI>().Setup(status);  // 设置提示框的信息
         }
     }
 }
