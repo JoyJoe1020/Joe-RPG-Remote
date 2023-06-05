@@ -27,12 +27,14 @@ public class BackgroundMusicController : MonoBehaviour
         }
     }
 
+    // ≤•∑≈“Ù¿÷
     private void PlayMusic()
     {
         audioSource.volume = initialVolume;
         audioSource.Play();
     }
 
+    // —”≥Ÿ≤•∑≈“Ù¿÷
     private IEnumerator PlayDelayed(float delay)
     {
         yield return new WaitForSeconds(delay);

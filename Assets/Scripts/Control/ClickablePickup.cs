@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace RPG.Control
 {
+    // 可点击的拾取物品类，用于处理玩家点击拾取物品
     [RequireComponent(typeof(Pickup))]
     public class ClickablePickup : MonoBehaviour, IRaycastable
     {
@@ -15,6 +16,7 @@ namespace RPG.Control
             pickup = GetComponent<Pickup>();
         }
 
+        // 获取光标类型
         public CursorType GetCursorType()
         {
             if (pickup.CanBePickedUp())
@@ -27,6 +29,7 @@ namespace RPG.Control
             }
         }
 
+        // 处理射线检测
         public bool HandleRaycast(PlayerController callingController)
         {
             if (Input.GetMouseButtonDown(0))
