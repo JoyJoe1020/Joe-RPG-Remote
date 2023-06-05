@@ -9,14 +9,14 @@ namespace RPG.Dialogue
 {
     public class PlayerConversant : MonoBehaviour
     {
-        [SerializeField] string playerName;
+        [SerializeField] string playerName; // 玩家名称
 
-        Dialogue currentDialogue;
-        DialogueNode currentNode = null;
-        AIConversant currentConversant = null;
-        bool isChoosing = false;
+        Dialogue currentDialogue; // 当前对话
+        DialogueNode currentNode = null; // 当前节点
+        AIConversant currentConversant = null; // 当前对话者
+        bool isChoosing = false; // 是否在进行选择
 
-        public event Action onConversationUpdated;
+        public event Action onConversationUpdated; // 对话更新时触发的事件
 
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
         {
@@ -39,12 +39,12 @@ namespace RPG.Dialogue
 
         public bool IsActive()
         {
-            return currentDialogue != null;
+            return currentDialogue != null; // 判断是否处于对话状态
         }
 
         public bool IsChoosing()
         {
-            return isChoosing;
+            return isChoosing; // 判断是否处于选择状态
         }
 
         public string GetText()
@@ -54,7 +54,7 @@ namespace RPG.Dialogue
                 return "";
             }
 
-            return currentNode.GetText();
+            return currentNode.GetText(); // 获取当前节点的对白文本
         }
 
         public string GetCurrentConversantName()
@@ -65,13 +65,13 @@ namespace RPG.Dialogue
             }
             else
             {
-                return currentConversant.GetName();
+                return currentConversant.GetName(); // 获取当前对话者的名称
             }
         }
 
         public IEnumerable<DialogueNode> GetChoices()
         {
-            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)); // 获取满足条件的玩家选择子节点
         }
 
         public void SelectChoice(DialogueNode chosenNode)
@@ -81,7 +81,7 @@ namespace RPG.Dialogue
             isChoosing = false;
             Next();
         }
-    
+
         public void Next()
         {
             int numPlayerResponses = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
@@ -103,7 +103,7 @@ namespace RPG.Dialogue
 
         public bool HasNext()
         {
-            return FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
+            return FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0; // 判断是否还有下一个节点
         }
 
         private IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
@@ -112,21 +112,21 @@ namespace RPG.Dialogue
             {
                 if (node.CheckCondition(GetEvaluators()))
                 {
-                    yield return node;
+                    yield return node; // 过滤满足条件的节点
                 }
             }
         }
 
         private IEnumerable<IPredicateEvaluator> GetEvaluators()
         {
-            return GetComponents<IPredicateEvaluator>();
+            return GetComponents<IPredicateEvaluator>(); // 获取所有实现了IPredicateEvaluator接口的组件
         }
 
         private void TriggerEnterAction()
         {
             if (currentNode != null)
             {
-                TriggerAction(currentNode.GetOnEnterAction());
+                TriggerAction(currentNode.GetOnEnterAction()); // 触发进入对话时的动作
             }
         }
 
@@ -134,7 +134,7 @@ namespace RPG.Dialogue
         {
             if (currentNode != null)
             {
-                TriggerAction(currentNode.GetOnExitAction());
+                TriggerAction(currentNode.GetOnExitAction()); // 触发退出对话时的动作
             }
         }
 
@@ -144,7 +144,7 @@ namespace RPG.Dialogue
 
             foreach (DialogueTrigger trigger in currentConversant.GetComponents<DialogueTrigger>())
             {
-                trigger.Trigger(action);
+                trigger.Trigger(action); // 触发对话者上的动作触发器
             }
         }
     }

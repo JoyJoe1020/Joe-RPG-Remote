@@ -10,28 +10,29 @@ namespace RPG.Dialogue
     public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField]
-        List<DialogueNode> nodes = new List<DialogueNode>();
+        List<DialogueNode> nodes = new List<DialogueNode>(); // 对话的节点列表
         [SerializeField]
-        Vector2 newNodeOffset = new Vector2(250, 0);
+        Vector2 newNodeOffset = new Vector2(250, 0); // 新节点的偏移量
 
-        Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
+        Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>(); // 节点名称与节点对象的字典
 
-        private void OnValidate() {
+        private void OnValidate()
+        {
             nodeLookup.Clear();
             foreach (DialogueNode node in GetAllNodes())
             {
-                nodeLookup[node.name] = node;
+                nodeLookup[node.name] = node; // 构建节点名称与节点对象的字典
             }
         }
 
         public IEnumerable<DialogueNode> GetAllNodes()
         {
-            return nodes;
+            return nodes; // 返回所有对话节点的集合
         }
 
         public DialogueNode GetRootNode()
         {
-            return nodes[0];
+            return nodes[0]; // 返回根节点
         }
 
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
@@ -40,7 +41,7 @@ namespace RPG.Dialogue
             {
                 if (nodeLookup.ContainsKey(childID))
                 {
-                    yield return nodeLookup[childID];
+                    yield return nodeLookup[childID]; // 返回指定节点的所有子节点
                 }
             }
         }
@@ -51,11 +52,10 @@ namespace RPG.Dialogue
             {
                 if (node.IsPlayerSpeaking())
                 {
-                    yield return node;
+                    yield return node; // 返回指定节点的玩家对白子节点
                 }
             }
         }
-
 
         public IEnumerable<DialogueNode> GetAIChildren(DialogueNode currentNode)
         {
@@ -63,7 +63,7 @@ namespace RPG.Dialogue
             {
                 if (!node.IsPlayerSpeaking())
                 {
-                    yield return node;
+                    yield return node; // 返回指定节点的NPC对白子节点
                 }
             }
         }
@@ -74,13 +74,13 @@ namespace RPG.Dialogue
             DialogueNode newNode = MakeNode(parent);
             Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
             Undo.RecordObject(this, "Added Dialogue Node");
-            AddNode(newNode);
+            AddNode(newNode); // 创建节点
         }
 
         public void DeleteNode(DialogueNode nodeToDelete)
         {
             Undo.RecordObject(this, "Deleted Dialogue Node");
-            nodes.Remove(nodeToDelete);
+            nodes.Remove(nodeToDelete); // 删除节点
             OnValidate();
             CleanDanglingChildren(nodeToDelete);
             Undo.DestroyObjectImmediate(nodeToDelete);
@@ -94,7 +94,7 @@ namespace RPG.Dialogue
             {
                 parent.AddChild(newNode.name);
                 newNode.SetPlayerSpeaking(!parent.IsPlayerSpeaking());
-                newNode.SetPosition(parent.GetRect().position + newNodeOffset);
+                newNode.SetPosition(parent.GetRect().position + newNodeOffset); // 设置新节点的位置
             }
 
             return newNode;
@@ -102,7 +102,7 @@ namespace RPG.Dialogue
 
         private void AddNode(DialogueNode newNode)
         {
-            nodes.Add(newNode);
+            nodes.Add(newNode); // 添加节点到对话列表
             OnValidate();
         }
 
@@ -110,7 +110,7 @@ namespace RPG.Dialogue
         {
             foreach (DialogueNode node in GetAllNodes())
             {
-                node.RemoveChild(nodeToDelete.name);
+                node.RemoveChild(nodeToDelete.name); // 清理被删除节点的所有子节点的引用
             }
         }
 #endif
@@ -130,7 +130,7 @@ namespace RPG.Dialogue
                 {
                     if (AssetDatabase.GetAssetPath(node) == "")
                     {
-                        AssetDatabase.AddObjectToAsset(node, this);
+                        AssetDatabase.AddObjectToAsset(node, this); // 将节点添加到对话对象中
                     }
                 }
             }
