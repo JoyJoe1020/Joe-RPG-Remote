@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace RPG.Dialogue.Editor
 {
+    // 对话修改处理器
     public class DialogueModificationProcessor : UnityEditor.AssetModificationProcessor
     {
         private static AssetMoveResult OnWillMoveAsset(string sourcePath, string destinationPath)

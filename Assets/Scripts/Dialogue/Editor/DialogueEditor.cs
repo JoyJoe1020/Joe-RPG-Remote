@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace RPG.Dialogue.Editor
 {
+    // 对话编辑器窗口
     public class DialogueEditor : EditorWindow
     {
         Dialogue selectedDialogue = null;
@@ -33,12 +34,14 @@ namespace RPG.Dialogue.Editor
         const float canvasSize = 4000;
         const float backgroundSize = 50;
 
+        // 显示对话编辑器窗口
         [MenuItem("Window/Dialogue Editor")]
         public static void ShowEditorWindow()
         {
             GetWindow(typeof(DialogueEditor), false, "Dialogue Editor");
         }
 
+        // 当打开对话资源时自动显示对话编辑器窗口
         [OnOpenAsset(1)]
         public static bool OnOpenAsset(int instanceID, int line)
         {
@@ -51,7 +54,8 @@ namespace RPG.Dialogue.Editor
             return false;
         }
 
-        private void OnEnable() {
+        private void OnEnable()
+        {
             Selection.selectionChanged += OnSelectionChanged;
 
             nodeStyle = new GUIStyle();
@@ -77,7 +81,8 @@ namespace RPG.Dialogue.Editor
             }
         }
 
-        private void OnGUI() {
+        private void OnGUI()
+        {
             if (selectedDialogue == null)
             {
                 EditorGUILayout.LabelField("No Dialogue Selected.");
@@ -104,7 +109,7 @@ namespace RPG.Dialogue.Editor
 
                 EditorGUILayout.EndScrollView();
 
-                if (creatingNode != null) 
+                if (creatingNode != null)
                 {
                     selectedDialogue.CreateNode(creatingNode);
                     creatingNode = null;
@@ -231,9 +236,9 @@ namespace RPG.Dialogue.Editor
                 controlPointOffset.y = 0;
                 controlPointOffset.x *= 0.8f;
                 Handles.DrawBezier(
-                    startPosition, endPosition, 
-                    startPosition + controlPointOffset, 
-                    endPosition - controlPointOffset, 
+                    startPosition, endPosition,
+                    startPosition + controlPointOffset,
+                    endPosition - controlPointOffset,
                     Color.white, null, 4f);
             }
         }
