@@ -8,7 +8,7 @@ namespace RPG.Core
     public class Condition
     {
         [SerializeField]
-        Disjunction[] and;
+        Disjunction[] and; // 与条件的数组
 
         public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
         {
@@ -16,17 +16,17 @@ namespace RPG.Core
             {
                 if (!dis.Check(evaluators))
                 {
-                    return false;
+                    return false; // 如果有任何一个与条件不满足，返回false
                 }
             }
-            return true;
+            return true; // 所有与条件都满足，返回true
         }
 
         [System.Serializable]
         class Disjunction
         {
             [SerializeField]
-            Predicate[] or;
+            Predicate[] or; // 或条件的数组
 
             public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
             {
@@ -34,10 +34,10 @@ namespace RPG.Core
                 {
                     if (pred.Check(evaluators))
                     {
-                        return true;
+                        return true; // 如果有任何一个或条件满足，返回true
                     }
                 }
-                return false;
+                return false; // 所有或条件都不满足，返回false
             }
         }
 
@@ -45,25 +45,25 @@ namespace RPG.Core
         class Predicate
         {
             [SerializeField]
-            string predicate;
+            string predicate; // 谓词名称
             [SerializeField]
-            string[] parameters;
+            string[] parameters; // 谓词参数
             [SerializeField]
-            bool negate = false;
+            bool negate = false; // 是否取反
 
             public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
             {
                 foreach (var evaluator in evaluators)
                 {
-                    bool? result = evaluator.Evaluate(predicate, parameters);
+                    bool? result = evaluator.Evaluate(predicate, parameters); // 评估谓词结果
                     if (result == null)
                     {
-                        continue;
+                        continue; // 如果结果为null，继续下一个评估器
                     }
 
-                    if (result == negate) return false;
+                    if (result == negate) return false; // 根据取反情况判断谓词是否满足条件
                 }
-                return true;
+                return true; // 所有评估器都满足条件，返回true
             }
         }
     }

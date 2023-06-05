@@ -8,7 +8,7 @@ namespace RPG.Core
     {
         void LateUpdate()
         {
-            transform.forward = Camera.main.transform.forward;
+            transform.forward = Camera.main.transform.forward; // 将物体朝向设置为摄像机的朝向
         }
     }
 }

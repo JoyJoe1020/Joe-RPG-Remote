@@ -6,7 +6,7 @@ namespace RPG.Core
 {
     public class DestroyAfterEffect : MonoBehaviour
     {
-        [SerializeField] GameObject targetToDestroy = null;
+        [SerializeField] GameObject targetToDestroy = null; // 要销毁的目标对象
 
         void Update()
         {
@@ -14,11 +14,11 @@ namespace RPG.Core
             {
                 if (targetToDestroy != null)
                 {
-                    Destroy(targetToDestroy);
+                    Destroy(targetToDestroy); // 如果目标对象不为空，销毁目标对象
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    Destroy(gameObject); // 否则销毁自身
                 }
             }
         }
