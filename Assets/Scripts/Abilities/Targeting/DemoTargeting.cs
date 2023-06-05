@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace RPG.Abilities.Targeting
 {
+    // 演示目标选择
     [CreateAssetMenu(fileName = "Demo Targeting", menuName = "Abilities/Targeting/Demo", order = 0)]
     public class DemoTargeting : TargetingStrategy
     {

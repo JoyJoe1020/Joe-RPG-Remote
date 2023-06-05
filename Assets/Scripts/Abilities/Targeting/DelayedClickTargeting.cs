@@ -6,14 +6,15 @@ using UnityEngine;
 
 namespace RPG.Abilities.Targeting
 {
+    // 延迟点击目标选择
     [CreateAssetMenu(fileName = "Delayed Click Targeting", menuName = "Abilities/Targeting/Delayed Click", order = 0)]
     public class DelayedClickTargeting : TargetingStrategy
     {
-        [SerializeField] Texture2D cursorTexture;
-        [SerializeField] Vector2 cursorHotspot;
-        [SerializeField] LayerMask layerMask;
-        [SerializeField] float areaAffectRadius;
-        [SerializeField] Transform targetingPrefab;
+        [SerializeField] Texture2D cursorTexture; // 光标贴图
+        [SerializeField] Vector2 cursorHotspot; // 光标热点
+        [SerializeField] LayerMask layerMask; // 图层掩码
+        [SerializeField] float areaAffectRadius; // 区域影响半径
+        [SerializeField] Transform targetingPrefab; // 目标预制体
 
         Transform targetingPrefabInstance = null;
 
@@ -34,7 +35,7 @@ namespace RPG.Abilities.Targeting
             {
                 targetingPrefabInstance.gameObject.SetActive(true);
             }
-            targetingPrefabInstance.localScale = new Vector3(areaAffectRadius*2, 1, areaAffectRadius*2);
+            targetingPrefabInstance.localScale = new Vector3(areaAffectRadius * 2, 1, areaAffectRadius * 2);
             while (!data.IsCancelled())
             {
                 Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
@@ -45,7 +46,7 @@ namespace RPG.Abilities.Targeting
 
                     if (Input.GetMouseButtonDown(0))
                     {
-                        // Absorb the whole mouse click
+                        // 吸收整个鼠标点击
                         yield return new WaitWhile(() => Input.GetMouseButton(0));
                         data.SetTargetedPoint(raycastHit.point);
                         data.SetTargets(GetGameObjectsInRadius(raycastHit.point));
