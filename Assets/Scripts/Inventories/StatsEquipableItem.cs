@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using GameDevTV.Inventories;
 using RPG.Stats;
@@ -6,20 +5,21 @@ using UnityEngine;
 
 namespace RPG.Inventories
 {
+    // 可装备物品的类，实现了IModifierProvider接口
     [CreateAssetMenu(menuName = ("RPG/Inventory/Equipable Item"))]
     public class StatsEquipableItem : EquipableItem, IModifierProvider
     {
         [SerializeField]
-        Modifier[] additiveModifiers;
+        Modifier[] additiveModifiers;  // 加法修正器数组
         [SerializeField]
-        Modifier[] percentageModifiers;
+        Modifier[] percentageModifiers;  // 百分比修正器数组
 
         [System.Serializable]
         struct Modifier
         {
-            public Stat stat;
-            public float value;
-        }   
+            public Stat stat;  // 属性
+            public float value;  // 修正值
+        }
 
         public IEnumerable<float> GetAdditiveModifiers(Stat stat)
         {
@@ -27,7 +27,7 @@ namespace RPG.Inventories
             {
                 if (modifier.stat == stat)
                 {
-                    yield return modifier.value;
+                    yield return modifier.value;  // 返回对应属性的加法修正值
                 }
             }
         }
@@ -38,7 +38,7 @@ namespace RPG.Inventories
             {
                 if (modifier.stat == stat)
                 {
-                    yield return modifier.value;
+                    yield return modifier.value;  // 返回对应属性的百分比修正值
                 }
             }
         }
